@@ -1,0 +1,79 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+	
+    "include": [
+		// "~/.config/waybar/modules.jsonc",
+		"~/.config/waybar/modules/*.jsonc",
+		"~/.config/waybar/modules/custom/*.jsonc",
+		"~/.config/waybar/modules/extra/*.jsonc",
+		"~/.config/waybar/modules/hyprland/*.jsonc"
+	],
+
+    "modules-left": [
+		"custom/app",
+		"clock",
+		"custom/media"
+	],
+
+    "modules-center": [
+		"hyprland/workspaces"
+	],
+    "modules-right": [
+		"group/connectivity",
+		"group/system",
+		"tray",
+		"group/notifications"
+	],
+
+	// Group Connectivity
+	"group/connectivity": {
+		"orientation": "horizontal",
+		"modules":[
+			"network",
+			"bluetooth",
+			"custom/vpn"
+		]
+	},
+
+	// Group System
+	"group/system": {
+		"orientation": "horizontal",
+		"modules":[
+			"backlight",
+			"pulseaudio",
+			"pulseaudio#microphone",
+			"battery"
+		]
+	},
+
+	// Group IO Audio
+	"group/audio": {
+		"orientation": "horizontal",
+		"modules": [
+			"pulseaudio",
+			"pulseaudio#microphone"
+		]
+	},
+
+	// Keep notification and power controls in one continuous pill.
+	"group/notifications": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/swaync",
+			"custom/power_btn"
+		]
+	},
+
+	// Group Exit
+	"group/exit": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/power_btn"
+		]
+	}
+}

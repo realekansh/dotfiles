@@ -1,0 +1,7 @@
+{
+    "custom/app": {
+        "format": "",
+	"tooltip": false,
+	"on-click": "vicinae toggle"
+    }
+}
