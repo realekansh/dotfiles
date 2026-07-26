@@ -27,6 +27,7 @@ end
 local terminal    = executable("/usr/bin/kitty")
 local fileManager = executable("/usr/bin/thunar")
 local launcher    = executable("/usr/local/bin/vicinae")
+local browser     = executable("/usr/bin/firefox")
 
 -- Window lifecycle ----------------------------------------------------------
 
@@ -37,6 +38,9 @@ end
 
 -- Close the focused window.
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
+
+-- Exit Hyprland.
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 
 -- Toggle floating on the focused window. (Avoids SUPER+V, which clashes with
 -- "paste" muscle memory; "F" reads as "float" anyway.)
@@ -58,6 +62,16 @@ end
 if launcher then
     hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
 end
+
+-- Launch the browser.
+if browser then
+    hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+end
+
+-- Add more application bindings by defining an executable above and binding
+-- it in this section, for example:
+-- local editor = executable("/usr/bin/codium")
+-- if editor then hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(editor)) end
 
 -- Directional focus movement. Arrow keys are paired with Vim-style hjkl so the
 -- scheme is usable on laptops without dedicated arrows and friendly to keyboard
