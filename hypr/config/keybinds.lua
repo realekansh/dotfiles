@@ -26,8 +26,8 @@ end
 
 local terminal    = executable("/usr/bin/kitty")
 local fileManager = executable("/usr/bin/thunar")
-local launcher    = executable("/usr/local/bin/vicinae")
 local browser     = executable("/usr/bin/firefox")
+local launcher    = "xdg-open vicinae://toggle"
 
 -- Window lifecycle ----------------------------------------------------------
 
@@ -58,15 +58,34 @@ if fileManager then
     hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 end
 
--- Application launcher. Overrides the legacy SUPER+Space fullscreen binding.
-if launcher then
-    hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
-end
+-- Application launcher.
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
 
 -- Launch the browser.
 if browser then
     hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 end
+
+-- Screenshots ---------------------------------------------------------------
+--
+-- SUPER + SHIFT + S enters region selection mode. The selected area is copied
+-- directly to the Wayland clipboard without creating a screenshot file.
+
+local hyprshot = executable("/usr/bin/hyprshot")
+
+if hyprshot then
+    hl.bind(
+        mainMod .. " + SHIFT + S",
+        hl.dsp.exec_cmd(hyprshot .. " -m region --clipboard-only")
+    )
+end
+
+-- Clipboard -----------------------------------------------------------------
+
+hl.bind(
+    mainMod .. " + V",
+    hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history")
+)
 
 -- Add more application bindings by defining an executable above and binding
 -- it in this section, for example:
