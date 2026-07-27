@@ -27,6 +27,7 @@ end
 local terminal    = executable("/usr/bin/kitty")
 local fileManager = executable("/usr/bin/thunar")
 local browser     = executable("/usr/bin/firefox")
+local hyprpicker = executable("/usr/bin/hyprpicker")
 local launcher    = "xdg-open vicinae://toggle"
 
 -- Window lifecycle ----------------------------------------------------------
@@ -86,6 +87,18 @@ hl.bind(
     mainMod .. " + V",
     hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history")
 )
+
+-- Color picker --------------------------------------------------------------
+--
+-- Pick a color from the screen and copy its HEX value directly to the
+-- Wayland clipboard.
+
+if hyprpicker then
+    hl.bind(
+        mainMod .. " + SHIFT + C",
+        hl.dsp.exec_cmd(hyprpicker .. " -a")
+    )
+end
 
 -- Add more application bindings by defining an executable above and binding
 -- it in this section, for example:
