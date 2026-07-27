@@ -2,6 +2,8 @@
     "custom/app": {
         "format": "",
 	"tooltip": false,
-	"on-click": "vicinae toggle"
+	"on-click": "vicinae toggle",
+	"on-click-middle": "bash ~/.config/hypr/scripts/waybar-reload.sh",
+	"on-click-right": "bash ~/.config/hypr/scripts/wallpaper.sh"
     }
 }
