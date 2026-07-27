@@ -4,6 +4,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/vpn-status.sh",
         "interval": 5,
-        "tooltip": true
+        "tooltip": true,
+	"on-click": "nm-connection-editor"
     }
 }

@@ -7,7 +7,7 @@
 	    "tooltip-format-disabled": "Bluetooth disabled",
 	    "tooltip-format-connected": "Connected: {num_connections}\n{device_enumerate}",
 	    "tooltip-format-enumerate-connected": "{device_alias}",
-        "on-click": "rfkill toggle bluetooth",
-        "on-click-right": "blueman-manager"
+        "on-click-right": "rfkill toggle bluetooth",
+        "on-click": "blueman-manager"
     }
 }

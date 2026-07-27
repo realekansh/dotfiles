@@ -9,6 +9,6 @@
         "format-disconnected": "󰤮",
         "tooltip-format-disconnected": "Disconnected",
         "interval": 1,
-        "on-click-right": "kitty -e nmtui"
+	"on-click": "nm-connection-editor"
     }
 }
