@@ -100,6 +100,27 @@ if hyprpicker then
     )
 end
 
+-- Wallpaper Shuffle ---------------------------------------------------------
+--
+-- Use this command to reload and apply new wallpaper from ~/Pictures/wallpapers/
+-- directory to apply a random wallpaper
+
+hl.bind(
+    mainMod .. " + SHIFT + W",
+    hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/wallpaper.sh"),
+    { desc = "Shuffle wallpaper" }
+)
+
+-- Waybar Reload---------------------------------------------------------
+--
+-- Use this command to reload waybar and apply new configuration 
+
+hl.bind(
+    mainMod .. " + SHIFT + R",
+    hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/waybar-reload.sh"),
+    { desc = "Reload Waybar" }
+)
+
 -- Add more application bindings by defining an executable above and binding
 -- it in this section, for example:
 -- local editor = executable("/usr/bin/codium")
