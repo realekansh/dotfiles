@@ -25,7 +25,7 @@ local function executable(path)
 end
 
 local terminal    = executable("/usr/bin/kitty")
-local fileManager = executable("/usr/bin/thunar")
+local fileManager = executable("/usr/bin/nautilus")
 local browser     = executable("/usr/bin/firefox")
 local hyprpicker = executable("/usr/bin/hyprpicker")
 local launcher    = "xdg-open vicinae://toggle"
