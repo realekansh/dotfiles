@@ -1,7 +1,7 @@
 {
     "hyprland/workspaces": {
         "disable-scroll": false,
-        "active-only": true,
+        "active-only": false,
         "all-outputs": true,
         "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace = \"e-1\"})'",

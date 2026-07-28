@@ -1,18 +1,22 @@
+
+/* =========================================================
+ * GLOBAL
+ * ========================================================= */
+
 * {
     border: none;
     border-radius: 0;
-    font-family: "Fira Code",  FontAwesome;
+    font-family: "Fira Code", FontAwesome;
     font-weight: bold;
     font-size: 14px;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
     background: rgba(21, 18, 27, 0.6);
     color: #cdd6f4;
     transition-property: background-color;
-    transition-duration: .5s;
+    transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
@@ -21,12 +25,87 @@ window#waybar.hidden {
 
 tooltip {
     background: rgba(8, 7, 10, 0.8);
+    border: 2px solid #11111b;
     border-radius: 18px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
 }
 
+
+/* =========================================================
+ * SHARED MODULE STYLING
+ * ========================================================= */
+
+#clock,
+#network,
+#bluetooth,
+#custom-app,
+#custom-rofi,
+#custom-lock_screen,
+#custom-wol,
+#custom-tailscale,
+#custom-updates,
+#custom-github,
+#custom-vpn,
+#custom-media,
+#power-profiles-daemon,
+#temperature,
+#battery,
+#backlight,
+#custom-wl-gammarelay-temperature,
+#pulseaudio,
+#tray,
+#custom-swaync {
+    background-color: #2f354a;
+    margin: 10px 0;
+    padding: 0 7px;
+    border-radius: 18px;
+}
+
+
+/* =========================================================
+ * LEFT SIDE MODULES
+ * ========================================================= */
+
+/* App Launcher */
+
+#custom-app {
+    background: #cdd6f4;
+    color: #1e1e2e;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+
+/* Clock */
+
+#clock {
+    color: #fab387;
+    margin-left: 2px;
+    margin-right: 10px;
+    padding-left: 14px;
+    padding-right: 12px;
+}
+
+
+/* Media Player */
+
+#custom-media {
+    padding-right: 10px;
+    margin-left: 8px;
+    margin-right: 16px;
+    padding-left: 14px;
+}
+
+#custom-media.custom-spotify {
+    color: #1db954;
+    padding-left: 12px;
+}
+
+
+/* =========================================================
+ * MIDDLE SIDE MODULES
+ * ========================================================= */
+
+/* Hyprland Workspaces */
 
 #workspaces {
     background: rgba(8, 7, 10, 0.6);
@@ -35,8 +114,8 @@ tooltip {
     border-radius: 18px;
     margin-top: 7px;
     margin-bottom: 7px;
-    /* margin-left: 5px;
-    margin-right: 5px; */
+    margin-left: 1px;
+    margin-right: 9px;
     border: 0.5px solid #032412;
 }
 
@@ -50,7 +129,6 @@ tooltip {
     min-width: 22px;
 }
 
-
 #workspaces button.empty {
     opacity: 0.4;
 }
@@ -62,7 +140,7 @@ tooltip {
     min-width: 42px;
     background-size: 400% 400%;
     transition: all 0.3s ease-in-out;
-    /*opacity: 1.0;*/
+    /* opacity: 1.0; */
 }
 
 #workspaces button.urgent {
@@ -82,142 +160,45 @@ tooltip {
     background-size: 400% 400%;
 }
 
-#clock,
-#network,
-#bluetooth,
-#custom-app,
-#custom-rofi,
-#custom-power_btn,
-#custom-lock_screen,
-#custom-wol,
-#custom-tailscale,
-#custom-updates,
-#custom-github,
-#custom-vpn,
-#custom-media,
-#power-profiles-daemon,
-#temperature,
-#battery,
-#backlight,
-#custom-wl-gammarelay-temperature,
-#pulseaudio,
-#tray,
-#custom-swaync {
-    background-color: #2f354a;
-    margin: 0 0 0 0;
-    padding: 0px 7px 0px 7px;
-    border-radius: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: none;
+
+/* =========================================================
+ * RIGHT SIDE MODULES
+ * ========================================================= */
+
+/* Tray */
+
+#tray {
+    margin-right: 8px;
 }
 
 
-
-/* LEFT MODULES */
-
-
-#clock {
-    border-radius: 18px;
-    color: #fab387;
-    margin-left: 5px;
-    margin-right: 10px;
-}
+/* ---------------------------------------------------------
+ * Connectivity
+ * Network + Bluetooth + VPN
+ * --------------------------------------------------------- */
 
 #network {
     border-radius: 18px 0 0 18px;
     color: #f9e2af;
     margin-left: 5px;
     min-width: 18px;
+    padding-left: 12px;
 }
 
 #network.disabled {
     color: #f9e2af;
 }
 
-
 #bluetooth {
     border-radius: 0;
     color: #89b4fa;
-} 
-
-#custom-app {
-    background: #cdd6f4;
-    color: #1e1e2e;
-    border-radius: 18px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-/* CENTER MODULES */
-
-
-#custom-rofi {
-    opacity: 0.6
-}
-
-#custom-power_btn {
-    color: #9c8bfd;
-    background: transparent;
-    border-radius: 0;
-    margin: 0;
-    padding: 0 8px;
-}
-
-#custom-lock_screen {
-    color :#9c8bfd;
-    border-radius: 0px 0px 0px 0px;
-}
-
-#custom-tailscale,
-#custom-wol {
-    border-radius: 0px 0px 0px 0px;    
-}
-#custom-tailscale.green,
-#custom-wol.green {
-    color: #a6e3a1;
-}
-#custom-tailscale.red,
-#custom-wol.red {
-    color: #fd8b9e; 
-}
-#custom-wol.orange {
-    color: #FFA500;
-}
-
-
-#custom-updates.green {
-    color: #a6e3a1;
-}
-
-#custom-updates.yellow {
-    color: #e8db92;
-}
-
-#custom-updates.red {
-    color: #eba0ac;
-}
-
-#custom-github {
-    border-radius: 0px 18px 18px 0px;
-}
-
-#custom-github.green {
-    color: #a6e3a1;
-}
-
-#custom-github.yellow {
-    color: #e8db92;
-}
-
-#custom-github.red {
-    color: #eba0ac;
 }
 
 #custom-vpn {
     border-radius: 0 18px 18px 0;
     color: #a6e3a1;
     margin-right: 10px;
+    padding-right: 12px;
 }
 
 #custom-vpn.disconnected {
@@ -225,70 +206,15 @@ tooltip {
 }
 
 
-
-/* RIGHT MODULES */
-
-
-#custom-media {
-    padding-right: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-#custom-media.custom-spotify {
-    color: #1db954;
-}
-
-#temperature {
-    color: #8be9fd;
-    border-radius: 18px 0px 0px 18px;
-}
-
-#temperature.critical {
-    color: #eba0ac;
-}
-
-#battery {
-    border-radius: 0 18px 18px 0;
-    padding: 0px 0px 0px 7px;
-    color: #a6e3a1;
-    margin-right: 10px;
-}
-
-#battery.warning {
-    color: #e8db92;
-}
-
-#battery.critical {
-    color: #eba0ac;
-}
-
-#power-profiles-daemon{
-    border-radius: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 7px;
-}
-
-#power-profiles-daemon.power-saver{
-    color: #a6e3a1;
-}
-
-#power-profiles-daemon.balanced{
-    color: #8be9fd;
-}
-
-#power-profiles-daemon.performance{
-    color: #e8db92;
-}
-
-#custom-wl-gammarelay-temperature {
-    border-radius: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 7px;
-    color: #d99280;
-}
+/* ---------------------------------------------------------
+ * System Controls
+ * Backlight + Audio + Microphone + Battery
+ * --------------------------------------------------------- */
 
 #backlight {
     border-radius: 18px 0 0 18px;
     color: #f9e2af;
+    padding-left: 10px;
 }
 
 #pulseaudio {
@@ -301,47 +227,205 @@ tooltip {
     color: #cba6f7;
 }
 
-#tray {
-    border-radius: 18px;
-    margin-right: 8px;
+#battery {
+    border-radius: 0 18px 18px 0;
+    padding: 0 0 0 7px;
+    color: #a6e3a1;
+    margin-right: 10px;
+    padding-right: 10px;
 }
+
+#battery.warning {
+    color: #e8db92;
+}
+
+#battery.critical {
+    color: #eba0ac;
+}
+
+
+/* ---------------------------------------------------------
+ * Notifications / Power
+ * --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+ * Notifications / Power
+ * --------------------------------------------------------- */
 
 #group-notifications {
     background-color: #2f354a;
     border-radius: 18px;
-    margin: 10px 14px 10px 0;
-    padding: 0 3px;
+    margin: 10px 20px 10px 0;
+    padding: 0;
 }
+
+/* Shared child styling */
 
 #group-notifications #custom-swaync,
 #group-notifications #custom-power_btn {
     background: transparent;
     margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
     border: none;
+}
+
+/* Notifications */
+
+#group-notifications #custom-swaync {
+    color: #cdd6f4;
+    border-radius: 18px 0 0 18px;
+    padding: 0 6px 0 10px;
+    min-width: 20px;
+}
+
+/* Power */
+
+#group-notifications #custom-power_btn {
+    color: #cdd6f4;
+    border-radius: 0 18px 18px 0;
+    padding: 0 10px 0 6px;
+}
+
+/* =========================================================
+ * EXTRAS
+ * ========================================================= */
+
+/* Lock Screen */
+
+#custom-lock_screen {
+    border-radius: 0;
+    color: #9c8bfd;
+}
+
+
+/* Tailscale */
+
+#custom-tailscale {
     border-radius: 0;
 }
 
-#group-notifications #custom-swaync {
-    padding-left: 7px;
-    padding-right: 6px;
+#custom-tailscale.green {
+    color: #a6e3a1;
 }
 
-#group-notifications #custom-power_btn {
-    padding-left: 6px;
-    padding-right: 7px;
+#custom-tailscale.red {
+    color: #fd8b9e;
 }
+
+
+/* Wake-on-LAN */
+
+#custom-wol {
+    border-radius: 0;
+}
+
+#custom-wol.green {
+    color: #a6e3a1;
+}
+
+#custom-wol.red {
+    color: #fd8b9e;
+}
+
+#custom-wol.orange {
+    color: #ffa500;
+}
+
+
+/* ---------------------------------------------------------
+ * Updates / GitHub
+ * --------------------------------------------------------- */
+
+#custom-updates.green,
+#custom-github.green {
+    color: #a6e3a1;
+}
+
+#custom-updates.yellow,
+#custom-github.yellow {
+    color: #e8db92;
+}
+
+#custom-updates.red,
+#custom-github.red {
+    color: #eba0ac;
+}
+
+/* States */
+
+#custom-updates.green,
+#custom-github.green {
+    color: #a6e3a1;
+}
+
+#custom-updates.yellow,
+#custom-github.yellow {
+    color: #e8db92;
+}
+
+#custom-updates.red,
+#custom-github.red {
+    color: #eba0ac;
+}
+
+
+/* Temperature */
+
+#temperature {
+    color: #8be9fd;
+    border-radius: 18px 0 0 18px;
+}
+
+#temperature.critical {
+    color: #eba0ac;
+}
+
+
+/* Power Profiles */
+
+#power-profiles-daemon {
+    border-radius: 0;
+    padding: 0 0 0 7px;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #a6e3a1;
+}
+
+#power-profiles-daemon.balanced {
+    color: #8be9fd;
+}
+
+#power-profiles-daemon.performance {
+    color: #e8db92;
+}
+
+
+/* Gamma Temperature */
+
+#custom-wl-gammarelay-temperature {
+    border-radius: 0;
+    padding: 0 0 0 7px;
+    color: #d99280;
+}
+
+
+/* ---------------------------------------------------------
+ * Standalone Fallbacks
+ * --------------------------------------------------------- */
 
 #custom-swaync {
     border-radius: 18px 0 0 18px;
     min-width: 20px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 10px;
     margin-right: 0;
 }
 
-#custom-updates {
-    border-radius: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 7px;
+#custom-power_btn {
+    color: #9c8bfd;
+    background: transparent;
+    border-radius: 0;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 20px;
 }

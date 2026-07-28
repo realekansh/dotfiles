@@ -12,6 +12,7 @@
         "exec": "swaync-client -swb",
         "on-click": "sleep 0.1 && swaync-client -t -sw",
         "escape": true,
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": " Notification Centre"
     }
 }
