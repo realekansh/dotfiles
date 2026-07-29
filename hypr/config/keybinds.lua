@@ -40,6 +40,9 @@ end
 -- Close the focused window.
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
 
+-- Lock Hyprland 
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
 -- Exit Hyprland.
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 
