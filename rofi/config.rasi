@@ -1,0 +1,101 @@
+configuration {
+    font:                   "JetBrains Mono 10";
+    modi:                   "drun,run,filebrowser";
+    show-icons:             true;
+    display-drun:           "Apps";
+    display-run:            "Run";
+    display-filebrowser:    "Files";
+    drun-display-format:    "{name}";
+    hover-select:           true;
+    me-select-entry:        "MouseSecondary";
+    me-accept-entry:        "MousePrimary";
+}
+
+* {
+    /* Semitransparent black background (40% opacity) */
+    background:          #00000066; 
+    
+    /* Elegant dark gray for selected highlights */
+    background-selected: #2a2a2aff; 
+    
+    /* Typography colors */
+    text-main:           #ffffffff; 
+    text-muted:          #b5b5b5ff; 
+    
+    /* Vibrant modern blue accent color */
+    accent:              #3584e4ff; 
+}
+
+window {
+    background-color: var(background);
+    text-color:       var(text-main);
+    border:           2px;
+    border-color:     var(accent);
+    border-radius:    8px;
+    width:            30%;
+    height:           40%;
+}
+
+mainbox {
+    background-color: transparent;
+    padding:          20px;
+}
+
+/* --- Input Bar / Search Section --- */
+inputbar {
+    background-color: transparent;
+    text-color:       var(text-main);
+    children:         [ "prompt", "textbox-prompt-colon", "entry" ];
+    margin:           0px 0px 12px 0px;
+}
+
+prompt {
+    text-color:       var(accent);
+}
+
+textbox-prompt-colon {
+    expand:           false;
+    str:              " : ";
+    text-color:       var(text-muted);
+}
+
+entry {
+    background-color:  transparent;
+    text-color:        var(text-main);
+    placeholder:       "Search";
+    placeholder-color: var(text-muted);
+}
+
+/* --- List View & Rows --- */
+listview {
+    background-color: transparent;
+    spacing:          6px;
+    lines:            8;
+    columns:          1;
+}
+
+element {
+    background-color: transparent;
+    text-color:       var(text-main);
+    padding:          8px 12px;
+    border-radius:    6px;
+}
+
+element-icon {
+    size:             24px;
+    margin:           0px 10px 0px 0px; /* Generates a clean gap after the icon */
+}
+
+/* Row states normalization */
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       var(text-main);
+}
+
+/* Beautiful highlighted/active selection state */
+element selected.normal {
+    background-color: var(background-selected);
+    text-color:       var(text-main); /* Changes text to white for optimal contrast */
+}
+
