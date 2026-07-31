@@ -28,7 +28,7 @@ local terminal    = executable("/usr/bin/kitty")
 local fileManager = executable("/usr/bin/nautilus")
 local browser     = executable("/usr/bin/firefox")
 local hyprpicker = executable("/usr/bin/hyprpicker")
-local launcher    = "xdg-open vicinae://toggle"
+local launcher    = "rofi -show drun"
 
 -- Window lifecycle ----------------------------------------------------------
 
