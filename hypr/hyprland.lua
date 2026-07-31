@@ -19,6 +19,7 @@
 --   6. keybinds      -> depends on nothing but `hl`.
 --   7. rules         -> window/workspace rules; purely additive.
 --   8. startup       -> runs last so the session is fully configured first.
+require("config.cursor")
 require("config.environment")
 require("config.monitors")
 require("config.appearance")
