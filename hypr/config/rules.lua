@@ -37,3 +37,11 @@ hl.window_rule({
 -- `suppressMaximizeRule` is created and registered; the local variable is
 -- retained intentionally for potential runtime toggling as shown above.
 _ = suppressMaximizeRule
+
+-- Force blur and maintain precise Kitty window opacity. 
+-- The "override" flag stops Hyprland from compounding transparency levels.
+hl.window_rule({
+    name    = "kitty-blur-and-opacity",
+    match   = { class = "^(kitty)$" },
+    opacity = "1.0 override 1.0 override",
+})
