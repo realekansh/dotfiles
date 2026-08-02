@@ -21,9 +21,17 @@ hl.config({
         -- phase. `col.active_border` accepts a gradient table; a single-color
         -- string is also valid.
         col = {
-            active_border   = "rgba(888888ff)",
-            inactive_border = "rgba(333333ff)",
+    active_border = {
+        colors = {
+	    "rgba(cdd6f4ff)",
+	    "rgba(c7bdd3ff)",
+ 	    "rgba(676a80ff)",
         },
+            angle = 45,
+       },
+
+    	    inactive_border = "rgb(333333)",
+	},
 
         -- Resizing from borders/gaps is convenient but can cause accidental
         -- drags; keep it off by default and enable intentionally per user.
