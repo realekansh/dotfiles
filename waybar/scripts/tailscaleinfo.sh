@@ -41,10 +41,8 @@ done
 
 jq -nc \
         --arg text "$text" \
-        --arg tooltip ""\
         --arg class "$css_class" \
         '{
             text: $text,
-            tooltip: $tooltip,
             class: $class
         }'

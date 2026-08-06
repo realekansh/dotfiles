@@ -1,8 +1,8 @@
 {
     "custom/rofi": {
-        "format": "{icon} Cerca",
+        "format": "{icon} Search",
         "format-icons": [""],
-        "tooltip-format": "Applicazioni",
+        "tooltip-format": "Applications",
         "on-click": "rofi -show drun"
     }
 }

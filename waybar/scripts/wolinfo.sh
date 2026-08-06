@@ -23,7 +23,7 @@ else
 fi
 
 
-tooltip+="Sveglia Host:"$'\n'"<small><span foreground = \"${css_class}\">${ip} (${mac})</span></small>"
+tooltip+="Wake Host:"$'\n'"<small><span foreground = \"${css_class}\">${ip} (${mac})</span></small>"
 
 jq -nc \
         --arg text "$status_icon" \

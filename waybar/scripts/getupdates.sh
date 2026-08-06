@@ -13,7 +13,7 @@ if ! updates_arch=$(checkupdates | wc -l); then
 fi
 
 if ! updates_aur=$(yay -Qua | wc -l); then
-    updtates_aur=0
+    updates_aur=0
 fi
 
 list_updates=""

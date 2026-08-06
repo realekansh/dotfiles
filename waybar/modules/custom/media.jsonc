@@ -1,16 +1,23 @@
 {
     "custom/media": {
-        "format": "{}",
-        "escape": true,
+        "format": "{icon} {text}",
+        "format-icons": {
+            "spotify": "",
+            "mpv": "",
+            "vlc": "󰕼",
+            "firefox": "",
+            "chromium": "",
+            "youtube-music": "",
+            "default": ""
+        },
         "return-type": "json",
-        "max-length": 40,
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl stop",
-        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-        "exec": "~/.config/waybar/scripts/mediaplayer.py", // Script in resources/custom_modules folder
-        "tooltip": true,
-        "tooltip-format": "{}"
+        "exec": "python3 ~/.config/waybar/scripts/media_scroll.py",
+        "on-click": "~/.config/waybar/scripts/media_toggle.sh",
+        "on-click-right": "playerctl play-pause",
+        "on-click-middle": "playerctl play-pause",
+        "on-scroll-up": "playerctl previous",
+        "on-scroll-down": "playerctl next",
+        "tooltip": false,
+        "escape": true
     }
 }

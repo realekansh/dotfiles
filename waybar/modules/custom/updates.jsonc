@@ -2,7 +2,7 @@
     "custom/updates": {
         //"format": " {}",
         "format": "⟳ {}",
-        // "tooltip-format": "Aggiorna il Sistema\n<small>Pacchetti: {}</small>",
+        // "tooltip-format": "Update System\n<small>Packages: {}</small>",
         "escape": false,
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/getupdates.sh",
