@@ -52,6 +52,7 @@ tooltip {
 #backlight,
 #custom-wl-gammarelay-temperature,
 #pulseaudio,
+#custom-system_popup,
 #tray,
 #custom-swaync {
     background-color: #2f354a;
@@ -164,6 +165,13 @@ tooltip {
 /* =========================================================
  * RIGHT SIDE MODULES
  * ========================================================= */
+
+#custom-system_popup {
+    margin-right: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 14px;
+}
 
 /* Tray */
 

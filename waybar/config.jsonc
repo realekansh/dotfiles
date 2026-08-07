@@ -55,7 +55,7 @@
      * ========================================================= */
 
     "modules-right": [
-		"group/status",
+        "custom/system_popup",
         "group/connectivity",
         "group/system",
         "group/notifications"

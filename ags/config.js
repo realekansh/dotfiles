@@ -1,5 +1,5 @@
 const mpris = await Service.import('mpris');
-const App = await Service.import('app');
+
 
 const WINDOW_NAME = 'media_popup';
 
@@ -137,8 +137,7 @@ const MediaWindow = Widget.Window({
     class_name: "media-window",
     anchor: ["top", "left"],
     margins: [10, 10, 10, 200], // Adjust these margins to place it near the Waybar module
-    popup: true,
-    focusable: true,
+
     visible: false,
     child: PlayerPopup(),
     keymode: "on-demand",
@@ -148,7 +147,9 @@ const MediaWindow = Widget.Window({
     }
 });
 
+import { SystemPopupWindow } from './system_popup.js';
+
 App.config({
     style: "./style.css",
-    windows: [MediaWindow],
+    windows: [MediaWindow, SystemPopupWindow],
 });
