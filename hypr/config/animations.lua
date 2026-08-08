@@ -25,6 +25,7 @@ hl.curve("snappy", { type = "spring", mass = 1, stiffness = 170, dampening = 20 
 hl.config({
     animations = {
         enabled = true,
+        workspace_wraparound = true,
     },
 })
 
@@ -35,4 +36,6 @@ hl.animation({ leaf = "windowsOut", enabled = true, speed = 3,   bezier = "linea
 hl.animation({ leaf = "border",     enabled = true, speed = 5,   bezier = "easeOutQuint" })
 hl.animation({ leaf = "fadeIn",      enabled = true, speed = 2,   bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",    enabled = true, speed = 1.5, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",  enabled = true, speed = 3,   bezier = "easeOutQuint", style = "fade" })
+-- Move the workspace horizontally with the trackpad gesture, then settle
+-- gently instead of fading or snapping to the destination.
+hl.animation({ leaf = "workspaces",  enabled = true, speed = 4,   bezier = "easeInOutCubic", style = "slide" })

@@ -158,7 +158,21 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,         hl.dsp.window.move({ workspace = i }))
 end
 
+-- Keep the native 1:1 gesture so the workspace follows the fingers.
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace",
+})
+
 -- Mouse ---------------------------------------------------------------------
+
+-- Scroll through open workspaces only, wrapping at either end.
+hl.config({
+    binds = {
+        allow_workspace_cycles = true,
+    },
+})
 
 -- Move a window by dragging with SUPER + left mouse button.
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })

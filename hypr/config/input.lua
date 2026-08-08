@@ -27,10 +27,25 @@ hl.config({
         repeat_delay = 300,
 
         touchpad = {
-            tap_to_click          = true,    -- tap-to-click is expected on laptops
-            natural_scroll        = true,    -- trackpad "natural" direction is now standard
-            disable_while_typing  = true,    -- avoids accidental cursor jumps while typing
-            middle_button_emulation = false, -- leave three-finger/middle-click alone
+            tap_to_click            = true,    -- tap-to-click is expected on laptops
+            tap_and_drag            = true,    -- drag with a tap followed by movement
+            drag_lock               = 1,       -- keep a drag briefly active after lifting
+            natural_scroll          = true,    -- trackpad "natural" direction is now standard
+            disable_while_typing    = true,    -- avoids accidental cursor jumps while typing
+            clickfinger_behavior    = true,    -- two-finger tap/click acts as right click
+            middle_button_emulation = false,   -- keep two-button middle-click emulation off
+            scroll_factor           = 1.0,     -- normal two-finger scroll speed
         },
+    },
+
+    gestures = {
+        -- Make slow swipes easier to complete without removing the native
+        -- 1:1 finger-following interaction.
+        workspace_swipe_distance = 180,
+        workspace_swipe_cancel_ratio = 0.35,
+        workspace_swipe_min_speed_to_force = 0,
+        workspace_swipe_direction_lock = true,
+        workspace_swipe_forever = true,
+        workspace_swipe_create_new = false,
     },
 })
