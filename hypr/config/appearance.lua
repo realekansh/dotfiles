@@ -57,14 +57,14 @@ hl.config({
 
         shadow = {
             enabled      = true,
-            range        = 4,
-            render_power = 3,
+            range        = 8,
+            render_power = 5,
             color        = 0xee1a1a1a,
         },
 
         blur = {
             enabled  = true,
-            size     = 8,
+            size     = 5,
             passes   = 3,
             vibrancy = 0.1696,
         },
