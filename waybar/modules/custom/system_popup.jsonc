@@ -2,8 +2,8 @@
     "custom/system_popup": {
         "format": "{}",
         "return-type": "json",
-        "exec": "~/.config/waybar/scripts/popup_icon.sh",
-        "on-click": "~/.config/waybar/scripts/toggle_popup.sh",
+        "exec": "~/.config/waybar/scripts/popup-icon.sh",
+        "on-click": "~/.config/waybar/scripts/toggle-popup.sh",
         "signal": 10
     }
 }

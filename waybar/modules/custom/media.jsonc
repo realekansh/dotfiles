@@ -11,8 +11,8 @@
             "default": ""
         },
         "return-type": "json",
-        "exec": "python3 ~/.config/waybar/scripts/media_scroll.py",
-        "on-click": "~/.config/waybar/scripts/media_toggle.sh",
+        "exec": "python3 ~/.config/waybar/scripts/media-scroll.py",
+        "on-click": "~/.config/waybar/scripts/media-toggle.sh",
         "on-click-right": "playerctl play-pause",
         "on-click-middle": "playerctl play-pause",
         "on-scroll-up": "playerctl previous",

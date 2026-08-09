@@ -4,33 +4,35 @@
         "active-only": false,
         "all-outputs": true,
         "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace = \"e-1\"})'",
-    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace = \"e+1\"})'",
-        "format": "{name}{icon}{windows}",
-        "format-icons": {
-            "urgent": "  ",
-            "default": " ",
-            "empty": ""
-        },
-        "window-rewrite": { // TODO complete
-            "title<.*youtube.*>": " ", 
-            "(.*) - Chromium": " ",
-            "(.*)VSCodium": "󰨞 ",
-            "class<Codium>": "󰨞 ",
-            "(.*) - Thunar": " ",
-            "class<discord>": " ",
-            "Steam": " ",
-            "class<org.telegram.desktop>": " ",
-            "WhatsDesk": " ",
-            "Kitty": " ",
-            "class<spotify>": " ",
-            "class<notion>": " ", // TODO add notion's symbol icon
-            "class<unityhub>": " ",
-            "class<Unity>": " ",
-            "class<zenity": " ",
-            "class<MuPDF>": " ",
-            "title<Aggiornamenti>": " ",
-            "title<Pacchetti Installati>": " "
-	    }
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({workspace = \"e-1\"})'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({workspace = \"e+1\"})'",
+        "format": "{name} {windows}",
+        "format-window-separator": "  ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "title<.*[Yy]ou[Tt]ube.*>": "",
+            "class<.*[Ff]irefox.*>": "",
+            "class<.*(Chromium|chromium|Google-chrome|Brave-browser|brave-browser|zen).*>": "",
+            "class<.*(VSCodium|Codium|code|Code).*>": "󰨞",
+            "class<.*(kitty|Kitty|Alacritty|alacritty|foot|Foot|WezTerm|wezterm).*>": "",
+            "class<.*(Thunar|thunar|Nautilus|nautilus|dolphin|Dolphin).*>": "󰉋",
+            "class<.*(discord|Discord).*>": "",
+            "class<.*(org.telegram.desktop|Telegram|telegram).*>": "",
+            "class<.*(Slack|slack).*>": "󰒱",
+            "class<.*(WhatsApp|whatsapp|WhatsDesk).*>": "",
+            "class<.*(spotify|Spotify).*>": "",
+            "class<.*(mpv|MPV|vlc|Vlc).*>": "󰎆",
+            "class<.*(Steam|steam).*>": "",
+            "class<.*(Lutris|lutris|heroic|Heroic).*>": "󰊗",
+            "class<.*(obs|OBS).*>": "󰑋",
+            "class<.*(Gimp|gimp|krita|Krita).*>": "󰏘",
+            "class<.*(libreoffice|LibreOffice).*>": "󰈙",
+            "class<.*(MuPDF|mupdf|evince|Evince|Zathura|zathura).*>": "󰈦",
+            "class<.*(notion|Notion).*>": "󰠮",
+            "class<.*(unityhub|UnityHub|Unity).*>": "󰚯",
+            "class<.*(zenity|Zenity).*>": "󰒓",
+            "title<.*Aggiornamenti.*>": "󰏗",
+            "title<.*Pacchetti Installati.*>": "󰆧"
+        }
     }
 }

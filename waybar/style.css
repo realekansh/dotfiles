@@ -1,3 +1,4 @@
+@import url("themes/catppuccin-mocha.css");
 
 /* =========================================================
  * GLOBAL
@@ -6,17 +7,16 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Fira Code", FontAwesome;
-    font-weight: bold;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", FontAwesome, sans-serif;
     font-size: 14px;
+    font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0.6);
-    color: #cdd6f4;
-    transition-property: background-color;
-    transition-duration: 0.5s;
+    background: @bar_bg;
+    color: @text;
+    transition: background-color 0.3s ease;
 }
 
 window#waybar.hidden {
@@ -24,11 +24,12 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background: rgba(8, 7, 10, 0.8);
-    border: 2px solid #11111b;
-    border-radius: 18px;
+    background: @tooltip_bg;
+    border: 1px solid @tooltip_border;
+    border-radius: 12px;
+    color: @text;
+    padding: 6px 8px;
 }
-
 
 /* =========================================================
  * SHARED MODULE STYLING
@@ -55,385 +56,276 @@ tooltip {
 #custom-system_popup,
 #tray,
 #custom-swaync {
-    background-color: #2f354a;
-    margin: 10px 0;
-    padding: 0 7px;
-    border-radius: 18px;
+    background-color: @surface;
+    border-radius: 16px;
+    margin: 8px 0;
+    padding: 0 9px;
 }
-
 
 /* =========================================================
  * LEFT SIDE MODULES
  * ========================================================= */
 
-/* App Launcher */
-
 #custom-app {
-    background: #cdd6f4;
-    color: #1e1e2e;
-    margin-left: 20px;
-    margin-right: 10px;
+    background: @launcher_bg;
+    color: @launcher_fg;
+    font-size: 16px;
+    margin-left: 12px;
+    margin-right: 8px;
+    min-width: 36px;
+    padding: 0;
 }
-
-
-/* Clock */
 
 #clock {
-    color: #fab387;
-    margin-left: 2px;
-    margin-right: 10px;
-    padding-left: 14px;
-    padding-right: 12px;
+    color: @module_icon;
+    margin-right: 8px;
+    padding: 0 13px;
 }
 
-
-/* Media Player */
-
 #custom-media {
-    padding-right: 10px;
-    margin-left: 8px;
-    margin-right: 16px;
-    padding-left: 14px;
+    margin-right: 12px;
+    padding: 0 12px;
 }
 
 #custom-media.custom-spotify {
-    color: #1db954;
-    padding-left: 12px;
+    color: @module_icon;
 }
 
-
 /* =========================================================
- * MIDDLE SIDE MODULES
+ * CENTER: HYPRLAND WORKSPACES
  * ========================================================= */
 
-/* Hyprland Workspaces */
-
 #workspaces {
-    background: rgba(8, 7, 10, 0.6);
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px;
-    border-radius: 18px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    margin-left: 1px;
-    margin-right: 9px;
-    border: 0.5px solid #032412;
+    background: @workspace_bg;
+    border: 1px solid @workspace_border;
+    border-radius: 16px;
+    margin: 7px 0;
+    padding: 3px 7px;
 }
 
 #workspaces button {
-    padding: 0px 6px;
-    margin: 0px 2px;
-    border-radius: 16px;
-    color: #cdd6f4;
-    background-color: #2f354a;
-    transition: all 0.3s ease-in-out;
-    min-width: 22px;
+    background-color: @surface;
+    border-radius: 12px;
+    color: @text;
+    margin: 0 2px;
+    min-width: 24px;
+    padding: 0 8px;
+    transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.empty {
-    opacity: 0.4;
+    opacity: 0.45;
 }
 
 #workspaces button.active {
-    color: #2f354a;
-    background-color: #cdd6f4;
-    border-radius: 16px;
-    min-width: 42px;
-    background-size: 400% 400%;
-    transition: all 0.3s ease-in-out;
-    /* opacity: 1.0; */
+    background-color: @launcher_bg;
+    color: @launcher_fg;
+    min-width: 38px;
 }
 
 #workspaces button.urgent {
-    background-color: #cdd6f4;
-    color: #2f354a;
-    padding: 0 6px;
-    border-radius: 16px;
-    min-width: 34px;
-    background-size: 300% 300%;
+    background-color: @red;
+    color: @launcher_fg;
+    min-width: 32px;
 }
 
 #workspaces button:hover {
-    background-color: #cdd6f4;
-    color: #2f354a;
-    border-radius: 16px;
-    min-width: 42px;
-    background-size: 400% 400%;
+    background-color: @workspace_hover;
+    color: @launcher_fg;
+    min-width: 32px;
 }
-
 
 /* =========================================================
  * RIGHT SIDE MODULES
  * ========================================================= */
 
 #custom-system_popup {
-    margin-right: 10px;
-    padding-left: 14px;
-    padding-right: 14px;
-    font-size: 14px;
+    color: @module_icon;
+    margin-right: 8px;
+    padding: 0 13px;
 }
-
-/* Tray */
 
 #tray {
     margin-right: 8px;
+    padding: 0 10px;
 }
 
-
-/* ---------------------------------------------------------
- * Connectivity
- * Network + Bluetooth + VPN
- * --------------------------------------------------------- */
+/* Connectivity: network + bluetooth + VPN */
 
 #network {
-    border-radius: 18px 0 0 18px;
-    color: #f9e2af;
-    margin-left: 5px;
+    border-radius: 16px 0 0 16px;
+    color: @module_icon;
+    margin-left: 4px;
     min-width: 18px;
-    padding-left: 12px;
+    padding-left: 11px;
 }
 
 #network.disabled {
-    color: #f9e2af;
+    color: @inactive;
 }
 
 #bluetooth {
     border-radius: 0;
-    color: #89b4fa;
+    color: @module_icon;
 }
 
 #custom-vpn {
-    border-radius: 0 18px 18px 0;
-    color: #a6e3a1;
-    margin-right: 10px;
-    padding-right: 12px;
+    border-radius: 0 16px 16px 0;
+    color: @module_icon;
+    margin-right: 8px;
+    padding-right: 11px;
 }
 
 #custom-vpn.disconnected {
-    color: #6c7086;
+    color: @inactive;
 }
 
-
-/* ---------------------------------------------------------
- * System Controls
- * Backlight + Audio + Microphone + Battery
- * --------------------------------------------------------- */
+/* System controls: backlight + audio + microphone + battery */
 
 #backlight {
-    border-radius: 18px 0 0 18px;
-    color: #f9e2af;
-    padding-left: 10px;
+    border-radius: 16px 0 0 16px;
+    color: @module_icon;
+    padding-left: 11px;
 }
 
 #pulseaudio {
     border-radius: 0;
-    color: #89b4fa;
+    color: @module_icon;
 }
 
 #pulseaudio.microphone {
     border-radius: 0;
-    color: #cba6f7;
+    color: @module_icon;
 }
 
 #battery {
-    border-radius: 0 18px 18px 0;
-    padding: 0 0 0 7px;
-    color: #a6e3a1;
-    margin-right: 10px;
-    padding-right: 10px;
+    border-radius: 0 16px 16px 0;
+    color: @module_icon;
+    margin-right: 8px;
+    padding-right: 11px;
 }
 
 #battery.warning {
-    color: #e8db92;
+    color: @yellow;
 }
 
 #battery.critical {
-    color: #eba0ac;
+    color: @red;
 }
 
-
-/* ---------------------------------------------------------
- * Notifications / Power
- * --------------------------------------------------------- */
-
-/* ---------------------------------------------------------
- * Notifications / Power
- * --------------------------------------------------------- */
+/* Notifications and power */
 
 #group-notifications {
-    background-color: #2f354a;
-    border-radius: 18px;
-    margin: 10px 20px 10px 0;
+    background-color: @surface;
+    border-radius: 16px;
+    margin: 8px 12px 8px 0;
     padding: 0;
 }
 
-/* Shared child styling */
-
 #group-notifications #custom-swaync,
-#group-notifications #custom-power_btn {
+#group-notifications #custom-power_button {
     background: transparent;
-    margin: 0;
     border: none;
+    margin: 0;
 }
-
-/* Notifications */
 
 #group-notifications #custom-swaync {
-    color: #cdd6f4;
-    border-radius: 18px 0 0 18px;
-    padding: 0 6px 0 10px;
+    border-radius: 16px 0 0 16px;
+    color: @module_icon;
     min-width: 20px;
+    padding: 0 7px 0 11px;
 }
 
-/* Power */
-
-#group-notifications #custom-power_btn {
-    color: #cdd6f4;
-    border-radius: 0 18px 18px 0;
-    padding: 0 10px 0 6px;
+#group-notifications #custom-power_button {
+    border-radius: 0 16px 16px 0;
+    color: @module_icon;
+    padding: 0 11px 0 7px;
 }
 
 /* =========================================================
- * EXTRAS
+ * OPTIONAL MODULES AND STATES
  * ========================================================= */
-
-/* Lock Screen */
 
 #custom-lock_screen {
     border-radius: 0;
-    color: #9c8bfd;
+    color: @module_icon;
 }
 
-
-/* Tailscale */
-
-#custom-tailscale {
-    border-radius: 0;
-}
-
-#custom-tailscale.green {
-    color: #a6e3a1;
-}
-
-#custom-tailscale.red {
-    color: #fd8b9e;
-}
-
-
-/* Wake-on-LAN */
-
-#custom-wol {
-    border-radius: 0;
-}
-
-#custom-wol.green {
-    color: #a6e3a1;
-}
-
-#custom-wol.red {
-    color: #fd8b9e;
-}
-
-#custom-wol.orange {
-    color: #ffa500;
-}
-
-
-/* ---------------------------------------------------------
- * Updates / GitHub
- * --------------------------------------------------------- */
-
-#custom-updates.green,
-#custom-github.green {
-    color: #a6e3a1;
-}
-
-#custom-updates.yellow,
-#custom-github.yellow {
-    color: #e8db92;
-}
-
-#custom-updates.red,
-#custom-github.red {
-    color: #eba0ac;
-}
-
-/* States */
-
-#custom-updates.green,
-#custom-github.green {
-    color: #a6e3a1;
-}
-
-#custom-updates.yellow,
-#custom-github.yellow {
-    color: #e8db92;
-}
-
-#custom-updates.red,
-#custom-github.red {
-    color: #eba0ac;
-}
-
-
-/* Temperature */
-
-#temperature {
-    color: #8be9fd;
-    border-radius: 18px 0 0 18px;
-}
-
-#temperature.critical {
-    color: #eba0ac;
-}
-
-
-/* Power Profiles */
-
-#power-profiles-daemon {
-    border-radius: 0;
-    padding: 0 0 0 7px;
-}
-
-#power-profiles-daemon.power-saver {
-    color: #a6e3a1;
-}
-
-#power-profiles-daemon.balanced {
-    color: #8be9fd;
-}
-
-#power-profiles-daemon.performance {
-    color: #e8db92;
-}
-
-
-/* Gamma Temperature */
-
+#custom-tailscale,
+#custom-wol,
+#power-profiles-daemon,
 #custom-wl-gammarelay-temperature {
     border-radius: 0;
-    padding: 0 0 0 7px;
-    color: #d99280;
 }
 
+#custom-tailscale.green,
+#custom-wol.green,
+#custom-updates.green,
+#custom-github.green,
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
 
-/* ---------------------------------------------------------
- * Standalone Fallbacks
- * --------------------------------------------------------- */
+#custom-tailscale.red,
+#custom-wol.red,
+#custom-updates.red,
+#custom-github.red,
+#temperature.critical {
+    color: @red;
+}
+
+#custom-wol.orange,
+#custom-updates.yellow,
+#custom-github.yellow,
+#power-profiles-daemon.performance {
+    color: @yellow;
+}
+
+#temperature,
+#power-profiles-daemon.balanced {
+    color: @module_icon;
+}
+
+#temperature {
+    border-radius: 16px 0 0 16px;
+}
+
+#custom-wl-gammarelay-temperature {
+    color: @module_icon;
+}
+
+/* Standalone fallback when notifications are not grouped. */
 
 #custom-swaync {
-    border-radius: 18px 0 0 18px;
+    border-radius: 16px 0 0 16px;
     min-width: 20px;
-    padding-left: 20px;
-    padding-right: 10px;
-    margin-right: 0;
+    padding-left: 11px;
+    padding-right: 7px;
 }
 
-#custom-power_btn {
-    color: #9c8bfd;
-    background: transparent;
-    border-radius: 0;
-    margin: 0;
-    padding-left: 10px;
-    padding-right: 20px;
+#custom-power_button {
+    background: @surface;
+    border-radius: 0 16px 16px 0;
+    color: @module_icon;
+    margin: 8px 12px 8px 0;
+    padding: 0 11px 0 7px;
 }
+
+/* HyprCaffeine Waybar Module */
+#custom-hyprcaffeine {
+    min-width: 12px;
+    margin: 0 16px 0 7px;
+    padding: 0 2px;
+}
+#custom-hyprcaffeine.hc-off { color: #6c7086; }
+#custom-hyprcaffeine.hc-timer { color: #fab387; }
+#custom-hyprcaffeine.hc-infinite { color: #f9e2af; }
+#custom-hyprcaffeine.hc-monitor { color: #94e2d5; }
+#custom-hyprcaffeine.hc-lid { color: #cba6f7; }
+#custom-hyprcaffeine.hc-timer-monitor,
+#custom-hyprcaffeine.hc-infinite-monitor { color: #a6e3a1; }
+#custom-hyprcaffeine.hc-timer-lid,
+#custom-hyprcaffeine.hc-infinite-lid { color: #f5c2e7; }
+#custom-hyprcaffeine.hc-monitor-lid { color: #89b4fa; }
+#custom-hyprcaffeine.hc-all { color: #f38ba8; }
+/* END HyprCaffeine */

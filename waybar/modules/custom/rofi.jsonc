@@ -3,6 +3,6 @@
         "format": "{icon} Search",
         "format-icons": [""],
         "tooltip-format": "Applications",
-        "on-click": "rofi -show drun"
+        "on-click": "~/.config/rofi/scripts/menu.sh"
     }
 }

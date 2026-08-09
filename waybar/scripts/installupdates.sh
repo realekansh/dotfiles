@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Pacman updates list:"
 checkupdates
 echo "AUR updates list:"
