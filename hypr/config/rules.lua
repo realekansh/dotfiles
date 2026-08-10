@@ -45,3 +45,19 @@ hl.window_rule({
     match   = { class = "^(kitty)$" },
     opacity = "1.0 override 1.0 override",
 })
+
+-- SwayNC notification center blur layer rules
+hl.layer_rule({
+    name    = "swaync-control-center-blur",
+    match   = { namespace = "swaync-control-center" },
+    blur    = true,
+    ignore_alpha = 0.2,
+})
+
+hl.layer_rule({
+    name    = "swaync-notification-window-blur",
+    match   = { namespace = "swaync-notification-window" },
+    blur    = true,
+    ignore_alpha = 0.2,
+})
+
