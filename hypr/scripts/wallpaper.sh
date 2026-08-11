@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+WALLPAPER_DIR="$HOME/.config/hypr/hyprpaper"
 
 # Make sure the wallpaper directory exists
 mkdir -p "$WALLPAPER_DIR"
