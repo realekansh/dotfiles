@@ -19,12 +19,12 @@
 --   6. keybinds      -> depends on nothing but `hl`.
 --   7. rules         -> window/workspace rules; purely additive.
 --   8. startup       -> runs last so the session is fully configured first.
-require("config.cursor")
-require("config.environment")
-require("config.monitors")
-require("config.appearance")
-require("config.animations")
-require("config.input")
-require("config.keybinds")
-require("config.rules")
-require("config.startup")
+require("hyprland.cursor")
+require("hyprland.environment")
+require("hyprland.monitors")
+require("hyprland.appearance")
+require("hyprland.animations")
+require("hyprland.input")
+require("hyprland.keybinds")
+require("hyprland.rules")
+require("hyprland.startup")
