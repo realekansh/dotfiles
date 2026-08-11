@@ -3,6 +3,7 @@
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
+	"on-click": "~/.config/hypr/scripts/hyprsunset-toggle.sh",
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "tooltip-format": "Brightness",

@@ -2,7 +2,6 @@
     /* =========================================================
      * GLOBAL
      * ========================================================= */
-
     "layer": "top",
     "position": "top",
     "mode": "dock",
@@ -12,44 +11,35 @@
     "margin-top": 6,
     "margin-left": 10,
     "margin-right": 10,
-
     /* =========================================================
      * INCLUDES
      * ========================================================= */
-
     "include": [
         "~/.config/waybar/modules/*.jsonc",
         "~/.config/waybar/modules/custom/*.jsonc",
         "~/.config/waybar/modules/extra/*.jsonc",
         "~/.config/waybar/modules/hyprland/*.jsonc"
     ],
-
     /* =========================================================
      * BAR LAYOUT
      * ========================================================= */
-
     "modules-left": [
         "custom/app",
         "clock",
         "custom/media"
     ],
-
     "modules-center": [
         "hyprland/workspaces"
     ],
-
     "modules-right": [
-    "custom/hyprcaffeine",
         "custom/system_popup",
         "group/connectivity",
         "group/system",
         "group/notifications"
     ],
-
     /* =========================================================
      * ACTIVE GROUPS
      * ========================================================= */
-
     "group/connectivity": {
         "orientation": "horizontal",
         "modules": [
@@ -58,7 +48,6 @@
             "custom/vpn"
         ]
     },
-
     "group/system": {
         "orientation": "horizontal",
         "modules": [
@@ -68,20 +57,18 @@
             "battery"
         ]
     },
-
     "group/notifications": {
         "orientation": "horizontal",
         "modules": [
+            "custom/hyprcaffeine",
             "custom/swaync",
             "custom/power_button"
         ]
     },
-
     /* =========================================================
      * OPTIONAL GROUPS
      * These remain available without appearing on the bar.
      * ========================================================= */
-
     "group/audio": {
         "orientation": "horizontal",
         "modules": [
@@ -89,19 +76,17 @@
             "pulseaudio#microphone"
         ]
     },
-
     "group/exit": {
         "orientation": "horizontal",
         "modules": [
             "custom/power_button"
         ]
+    },
+    "custom/hyprcaffeine": {
+        "exec": "hyprcaffeine waybar",
+        "on-click": "hyprcaffeine menu",
+        "on-click-right": "hyprcaffeine toggle",
+        "interval": 2,
+        "return-type": "json"
     }
-,
-  "custom/hyprcaffeine": {
-    "exec": "hyprcaffeine waybar",
-    "on-click": "hyprcaffeine menu",
-    "on-click-right": "hyprcaffeine toggle",
-    "interval": 2,
-    "return-type": "json"
-  }
 }
