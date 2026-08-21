@@ -1,4 +1,5 @@
 /* ~/.config/ags/style.css */
+@import url('./system_popup.css');
 .media-window {
     background-color: transparent;
 }
