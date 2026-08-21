@@ -1,34 +1,34 @@
-@import url("themes/catppuccin-mocha.css");
+@import url("themes/material-ocean.css");
 
 /* =========================================================
  * GLOBAL
  * ========================================================= */
 
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", FontAwesome, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", FontAwesome, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
 }
 
 window#waybar {
-    background: @bar_bg;
-    color: @text;
-    transition: background-color 0.3s ease;
+  background: @bar_bg;
+  color: @text;
+  transition: background-color 0.3s ease;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 tooltip {
-    background: @tooltip_bg;
-    border: 1px solid @tooltip_border;
-    border-radius: 12px;
-    color: @text;
-    padding: 6px 8px;
+  background: @tooltip_bg;
+  border: 1px solid @tooltip_border;
+  border-radius: 12px;
+  color: @text;
+  padding: 6px 8px;
 }
 
 /* =========================================================
@@ -56,10 +56,10 @@ tooltip {
 #custom-system_popup,
 #tray,
 #custom-swaync {
-    background-color: @surface;
-    border-radius: 16px;
-    margin: 8px 0;
-    padding: 0 9px;
+  background-color: @surface;
+  border-radius: 16px;
+  margin: 8px 0;
+  padding: 0 9px;
 }
 
 /* =========================================================
@@ -67,28 +67,28 @@ tooltip {
  * ========================================================= */
 
 #custom-app {
-    background: @launcher_bg;
-    color: @launcher_fg;
-    font-size: 16px;
-    margin-left: 12px;
-    margin-right: 8px;
-    min-width: 36px;
-    padding: 0;
+  background: @launcher_bg;
+  color: @launcher_fg;
+  font-size: 16px;
+  margin-left: 12px;
+  margin-right: 8px;
+  min-width: 36px;
+  padding: 0;
 }
 
 #clock {
-    color: @module_icon;
-    margin-right: 8px;
-    padding: 0 13px;
+  color: @module_icon;
+  margin-right: 8px;
+  padding: 0 13px;
 }
 
 #custom-media {
-    margin-right: 12px;
-    padding: 0 12px;
+  margin-right: 12px;
+  padding: 0 12px;
 }
 
 #custom-media.custom-spotify {
-    color: @module_icon;
+  color: @module_icon;
 }
 
 /* =========================================================
@@ -96,43 +96,43 @@ tooltip {
  * ========================================================= */
 
 #workspaces {
-    background: @workspace_bg;
-    border: 1px solid @workspace_border;
-    border-radius: 16px;
-    margin: 7px 0;
-    padding: 3px 7px;
+  background: @workspace_bg;
+  border: 1px solid @workspace_border;
+  border-radius: 16px;
+  margin: 7px 0;
+  padding: 3px 7px;
 }
 
 #workspaces button {
-    background-color: @surface;
-    border-radius: 12px;
-    color: @text;
-    margin: 0 2px;
-    min-width: 24px;
-    padding: 0 8px;
-    transition: all 0.25s ease-in-out;
+  background-color: @surface;
+  border-radius: 12px;
+  color: @text;
+  margin: 0 2px;
+  min-width: 24px;
+  padding: 0 8px;
+  transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.empty {
-    opacity: 0.45;
+  opacity: 0.45;
 }
 
 #workspaces button.active {
-    background-color: @launcher_bg;
-    color: @launcher_fg;
-    min-width: 38px;
+  background-color: @launcher_bg;
+  color: @launcher_fg;
+  min-width: 38px;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
-    color: @launcher_fg;
-    min-width: 32px;
+  background-color: @red;
+  color: @launcher_fg;
+  min-width: 32px;
 }
 
 #workspaces button:hover {
-    background-color: @workspace_hover;
-    color: @launcher_fg;
-    min-width: 32px;
+  background-color: @workspace_hover;
+  color: @launcher_fg;
+  min-width: 32px;
 }
 
 /* =========================================================
@@ -140,106 +140,106 @@ tooltip {
  * ========================================================= */
 
 #custom-system_popup {
-    color: @module_icon;
-    margin-right: 8px;
-    padding: 0 13px;
+  color: @module_icon;
+  margin-right: 8px;
+  padding: 0 13px;
 }
 
 #tray {
-    margin-right: 8px;
-    padding: 0 10px;
+  margin-right: 8px;
+  padding: 0 10px;
 }
 
 /* Connectivity: network + bluetooth + VPN */
 
 #network {
-    border-radius: 16px 0 0 16px;
-    color: @module_icon;
-    margin-left: 4px;
-    min-width: 18px;
-    padding-left: 11px;
+  border-radius: 16px 0 0 16px;
+  color: @module_icon;
+  margin-left: 4px;
+  min-width: 18px;
+  padding-left: 11px;
 }
 
 #network.disabled {
-    color: @inactive;
+  color: @inactive;
 }
 
 #bluetooth {
-    border-radius: 0;
-    color: @module_icon;
+  border-radius: 0;
+  color: @module_icon;
 }
 
 #custom-vpn {
-    border-radius: 0 16px 16px 0;
-    color: @module_icon;
-    margin-right: 8px;
-    padding-right: 11px;
+  border-radius: 0 16px 16px 0;
+  color: @module_icon;
+  margin-right: 8px;
+  padding-right: 11px;
 }
 
 #custom-vpn.disconnected {
-    color: @inactive;
+  color: @inactive;
 }
 
 /* System controls: backlight + audio + microphone + battery */
 
 #backlight {
-    border-radius: 16px 0 0 16px;
-    color: @module_icon;
-    padding-left: 11px;
+  border-radius: 16px 0 0 16px;
+  color: @module_icon;
+  padding-left: 11px;
 }
 
 #pulseaudio {
-    border-radius: 0;
-    color: @module_icon;
+  border-radius: 0;
+  color: @module_icon;
 }
 
 #pulseaudio.microphone {
-    border-radius: 0;
-    color: @module_icon;
+  border-radius: 0;
+  color: @module_icon;
 }
 
 #battery {
-    border-radius: 0 16px 16px 0;
-    color: @module_icon;
-    margin-right: 8px;
-    padding-right: 11px;
+  border-radius: 0 16px 16px 0;
+  color: @module_icon;
+  margin-right: 8px;
+  padding-right: 11px;
 }
 
 #battery.warning {
-    color: @yellow;
+  color: @yellow;
 }
 
 #battery.critical {
-    color: @red;
+  color: @red;
 }
 
 /* Notifications and power */
 
 #group-notifications {
-    background-color: @surface;
-    border-radius: 16px;
-    margin: 8px 12px 8px 0;
-    padding: 0;
+  background-color: @surface;
+  border-radius: 16px;
+  margin: 8px 12px 8px 0;
+  padding: 0;
 }
 
 #group-notifications #custom-swaync,
 #group-notifications #custom-power_button {
-    background: transparent;
-    border: none;
-    margin: 0;
+  background: transparent;
+  border: none;
+  margin: 0;
 }
 
 #group-notifications #custom-swaync {
-    border-radius: 16px 0 0 16px;
-    color: @module_icon;
-    min-width: 20px;
-    padding: 0 7px 0 11px;
+  border-radius: 16px 0 0 16px;
+  color: @module_icon;
+  min-width: 20px;
+  padding: 0 7px 0 11px;
 }
 
 #group-notifications #custom-power_button {
-    border-radius: 0 16px 16px 0;
-    color: @module_icon;
-    padding: 0 11px 0 7px;
+  border-radius: 0 16px 16px 0;
+  color: @module_icon;
+  padding: 0 11px 0 7px;
 }
 
 /* =========================================================
@@ -247,15 +247,15 @@ tooltip {
  * ========================================================= */
 
 #custom-lock_screen {
-    border-radius: 0;
-    color: @module_icon;
+  border-radius: 0;
+  color: @module_icon;
 }
 
 #custom-tailscale,
 #custom-wol,
 #power-profiles-daemon,
 #custom-wl-gammarelay-temperature {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 #custom-tailscale.green,
@@ -263,7 +263,7 @@ tooltip {
 #custom-updates.green,
 #custom-github.green,
 #power-profiles-daemon.power-saver {
-    color: @green;
+  color: @green;
 }
 
 #custom-tailscale.red,
@@ -271,61 +271,89 @@ tooltip {
 #custom-updates.red,
 #custom-github.red,
 #temperature.critical {
-    color: @red;
+  color: @red;
 }
 
 #custom-wol.orange,
 #custom-updates.yellow,
 #custom-github.yellow,
 #power-profiles-daemon.performance {
-    color: @yellow;
+  color: @yellow;
 }
 
 #temperature,
 #power-profiles-daemon.balanced {
-    color: @module_icon;
+  color: @module_icon;
 }
 
 #temperature {
-    border-radius: 16px 0 0 16px;
+  border-radius: 16px 0 0 16px;
 }
 
 #custom-wl-gammarelay-temperature {
-    color: @module_icon;
+  color: @module_icon;
 }
 
 /* Standalone fallback when notifications are not grouped. */
 
 #custom-swaync {
-    border-radius: 16px 0 0 16px;
-    min-width: 20px;
-    padding-left: 11px;
-    padding-right: 7px;
+  border-radius: 16px 0 0 16px;
+  min-width: 20px;
+  padding-left: 11px;
+  padding-right: 7px;
 }
 
 #custom-power_button {
-    background: @surface;
-    border-radius: 0 16px 16px 0;
-    color: @module_icon;
-    margin: 8px 12px 8px 0;
-    padding: 0 11px 0 7px;
+  background: @surface;
+  border-radius: 0 16px 16px 0;
+  color: @module_icon;
+  margin: 8px 12px 8px 0;
+  padding: 0 11px 0 7px;
 }
 
 /* HyprCaffeine Waybar Module */
 #custom-hyprcaffeine {
-    min-width: 12px;
-    margin: 0 16px 0 7px;
-    padding: 0 2px;
+  min-width: 12px;
+  margin: 0 16px 0 7px;
+  padding: 0 2px;
 }
-#custom-hyprcaffeine.hc-off { color: #6c7086; }
-#custom-hyprcaffeine.hc-timer { color: #fab387; }
-#custom-hyprcaffeine.hc-infinite { color: #f9e2af; }
-#custom-hyprcaffeine.hc-monitor { color: #94e2d5; }
-#custom-hyprcaffeine.hc-lid { color: #cba6f7; }
+
+#custom-hyprcaffeine.hc-off {
+  color: #6c7086;
+}
+
+#custom-hyprcaffeine.hc-timer {
+  color: #fab387;
+}
+
+#custom-hyprcaffeine.hc-infinite {
+  color: #f9e2af;
+}
+
+#custom-hyprcaffeine.hc-monitor {
+  color: #94e2d5;
+}
+
+#custom-hyprcaffeine.hc-lid {
+  color: #cba6f7;
+}
+
 #custom-hyprcaffeine.hc-timer-monitor,
-#custom-hyprcaffeine.hc-infinite-monitor { color: #a6e3a1; }
+#custom-hyprcaffeine.hc-infinite-monitor {
+  color: #a6e3a1;
+}
+
 #custom-hyprcaffeine.hc-timer-lid,
-#custom-hyprcaffeine.hc-infinite-lid { color: #f5c2e7; }
-#custom-hyprcaffeine.hc-monitor-lid { color: #89b4fa; }
-#custom-hyprcaffeine.hc-all { color: #f38ba8; }
+#custom-hyprcaffeine.hc-infinite-lid {
+  color: #f5c2e7;
+}
+
+#custom-hyprcaffeine.hc-monitor-lid {
+  color: #89b4fa;
+}
+
+#custom-hyprcaffeine.hc-all {
+  color: #f38ba8;
+}
+
 /* END HyprCaffeine */
