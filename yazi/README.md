@@ -4,7 +4,7 @@ A practical, high-performance, maintainable configuration for **Yazi** fully int
 
 ---
 
-## Configuration Structure
+## 📁 Configuration Structure
 
 ```text
 ~/.config/yazi/
@@ -18,7 +18,7 @@ A practical, high-performance, maintainable configuration for **Yazi** fully int
 
 ---
 
-## Design & Theme
+## 🎨 Design & Theme
 
 - **Palette**: Catppuccin Mocha (`#89b4fa` Accent, `#313244` Surface, `#cdd6f4` Text, `#1e1e2e` Background).
 - **Typography**: JetBrainsMono Nerd Font.
@@ -27,7 +27,7 @@ A practical, high-performance, maintainable configuration for **Yazi** fully int
 
 ---
 
-## Plugins Installed (`ya pkg`)
+## 🔌 Plugins Installed (`ya pkg`)
 
 1. **`git.yazi`** (`yazi-rs/plugins:git`):
    Real-time Git file state and repository indicators (modified, added, untracked, deleted).
@@ -38,7 +38,7 @@ A practical, high-performance, maintainable configuration for **Yazi** fully int
 
 ---
 
-## Key Customizations & Keybindings
+## ⌨️ Key Customizations & Keybindings
 
 | Binding | Action | Description |
 | :--- | :--- | :--- |
@@ -53,7 +53,7 @@ A practical, high-performance, maintainable configuration for **Yazi** fully int
 
 ---
 
-## Shell Integration
+## 🐚 Shell Integration
 
 The shell wrapper function `y` is configured in `~/.bashrc`:
 
@@ -65,7 +65,7 @@ Running `y` instead of `yazi` launches Yazi and automatically changes your termi
 
 ---
 
-## Dependencies
+## 📦 Dependencies
 
 ### Required
 - `yazi` / `ya`: Terminal file manager binary & package manager.
@@ -91,7 +91,7 @@ Running `y` instead of `yazi` launches Yazi and automatically changes your termi
 
 ---
 
-## Maintenance & Updates
+## 🛠 Maintenance & Updates
 
 To upgrade installed plugins:
 
