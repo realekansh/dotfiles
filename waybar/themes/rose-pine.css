@@ -1,6 +1,6 @@
 /* Rosé Pine: understated mauve and rose tones. */
 
-@define-color bar_bg rgba(25, 23, 36, 0.82);
+@define-color bar_bg rgba(25, 23, 36, 0.40);
 @define-color tooltip_bg rgba(31, 29, 46, 0.98);
 @define-color tooltip_border #524f67;
 @define-color text #e0def4;

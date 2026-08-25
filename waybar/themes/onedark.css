@@ -1,6 +1,6 @@
 /* One Dark: modern editor-inspired neutral palette. */
 
-@define-color bar_bg rgba(40, 44, 52, 0.84);
+@define-color bar_bg rgba(40, 44, 52, 0.40);
 @define-color tooltip_bg rgba(33, 37, 43, 0.98);
 @define-color tooltip_border #4b5263;
 @define-color text #abb2bf;

@@ -1,6 +1,6 @@
 /* Catppuccin Macchiato: rich dark blue pastel. */
 
-@define-color bar_bg rgba(36, 39, 58, 0.80);
+@define-color bar_bg rgba(36, 39, 58, 0.40);
 @define-color tooltip_bg rgba(30, 32, 48, 0.98);
 @define-color tooltip_border #5b6078;
 @define-color text #cad3f5;

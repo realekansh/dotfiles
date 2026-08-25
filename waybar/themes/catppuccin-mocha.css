@@ -1,6 +1,6 @@
 /* Catppuccin Mocha: default Waybar palette. */
 
-@define-color bar_bg rgba(21, 18, 27, 0.72);
+@define-color bar_bg rgba(21, 18, 27, 0.40);
 @define-color tooltip_bg rgba(17, 17, 27, 0.96);
 @define-color tooltip_border #45475a;
 @define-color text #cdd6f4;

@@ -1,6 +1,6 @@
 /* Tokyo Night Storm: a brighter, stormy blue variation. */
 
-@define-color bar_bg rgba(36, 40, 59, 0.84);
+@define-color bar_bg rgba(36, 40, 59, 0.40);
 @define-color tooltip_bg rgba(30, 34, 50, 0.98);
 @define-color tooltip_border #4f5b7a;
 @define-color text #c8d3f5;

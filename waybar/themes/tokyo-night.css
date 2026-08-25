@@ -1,6 +1,6 @@
 /* Tokyo Night: change the import in ../style.css to use this palette. */
 
-@define-color bar_bg rgba(26, 27, 38, 0.76);
+@define-color bar_bg rgba(26, 27, 38, 0.40);
 @define-color tooltip_bg rgba(22, 22, 30, 0.97);
 @define-color tooltip_border #3b4261;
 @define-color text #c0caf5;

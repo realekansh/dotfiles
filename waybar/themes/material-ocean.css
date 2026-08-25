@@ -1,6 +1,6 @@
 /* Material Ocean: vivid blue accents on deep slate. */
 
-@define-color bar_bg rgba(13, 27, 38, 0.84);
+@define-color bar_bg rgba(13, 27, 38, 0.40);
 @define-color tooltip_bg rgba(10, 22, 32, 0.98);
 @define-color tooltip_border #29434e;
 @define-color text #b2ccd6;

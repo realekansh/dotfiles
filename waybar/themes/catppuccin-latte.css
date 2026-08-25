@@ -1,6 +1,6 @@
 /* Catppuccin Latte: clean, low-glare light palette. */
 
-@define-color bar_bg rgba(239, 241, 245, 0.88);
+@define-color bar_bg rgba(239, 241, 245, 0.40);
 @define-color tooltip_bg rgba(252, 252, 253, 0.99);
 @define-color tooltip_border #bcc0cc;
 @define-color text #4c4f69;

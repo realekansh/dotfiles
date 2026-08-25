@@ -1,6 +1,6 @@
 /* Everforest Dark: muted forest greens and warm neutrals. */
 
-@define-color bar_bg rgba(45, 53, 48, 0.82);
+@define-color bar_bg rgba(45, 53, 48, 0.40);
 @define-color tooltip_bg rgba(39, 47, 42, 0.98);
 @define-color tooltip_border #5c6a63;
 @define-color text #d3c6aa;

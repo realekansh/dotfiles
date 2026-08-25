@@ -1,6 +1,6 @@
 /* Gruvbox Dark: warm, low-glare retro palette. */
 
-@define-color bar_bg rgba(40, 40, 40, 0.80);
+@define-color bar_bg rgba(40, 40, 40, 0.40);
 @define-color tooltip_bg rgba(29, 32, 33, 0.98);
 @define-color tooltip_border #665c54;
 @define-color text #ebdbb2;

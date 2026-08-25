@@ -1,6 +1,6 @@
 /* Kanagawa Wave: ink black, indigo, and traditional accents. */
 
-@define-color bar_bg rgba(31, 31, 40, 0.84);
+@define-color bar_bg rgba(31, 31, 40, 0.40);
 @define-color tooltip_bg rgba(22, 22, 29, 0.98);
 @define-color tooltip_border #54546d;
 @define-color text #dcd7ba;

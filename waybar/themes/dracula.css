@@ -1,6 +1,6 @@
 /* Dracula: violet accents over a deep, high-contrast surface. */
 
-@define-color bar_bg rgba(40, 42, 54, 0.78);
+@define-color bar_bg rgba(40, 42, 54, 0.40);
 @define-color tooltip_bg rgba(33, 34, 44, 0.98);
 @define-color tooltip_border #6272a4;
 @define-color text #f8f8f2;

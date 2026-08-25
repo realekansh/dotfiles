@@ -1,6 +1,6 @@
 /* Catppuccin Frappe: soft blue-grey pastel. */
 
-@define-color bar_bg rgba(48, 52, 70, 0.80);
+@define-color bar_bg rgba(48, 52, 70, 0.40);
 @define-color tooltip_bg rgba(41, 44, 60, 0.98);
 @define-color tooltip_border #626880;
 @define-color text #c6d0f5;

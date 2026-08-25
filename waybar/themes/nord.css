@@ -1,6 +1,6 @@
 /* Nord: cool arctic blues with restrained contrast. */
 
-@define-color bar_bg rgba(46, 52, 64, 0.80);
+@define-color bar_bg rgba(46, 52, 64, 0.40);
 @define-color tooltip_bg rgba(36, 41, 51, 0.98);
 @define-color tooltip_border #4c566a;
 @define-color text #eceff4;
