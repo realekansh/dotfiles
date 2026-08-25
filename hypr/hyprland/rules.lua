@@ -13,81 +13,91 @@
 -- fullscreen unexpectedly. The handle is kept local so individual rules could
 -- be toggled later, e.g. `suppressMaximizeRule:set_enabled(false)`.
 local suppressMaximizeRule = hl.window_rule({
-    name          = "suppress-maximize-events",
-    match         = { class = ".*" },
-    suppress_event = "maximize",
+  name           = "suppress-maximize-events",
+  match          = { class = ".*" },
+  suppress_event = "maximize",
 })
 
 -- XWayland transitions sometimes create a tiny, empty, untracked surface (no
 -- class, no title) that should not steal focus. This rule keeps those out of
 -- the way without affecting real XWayland windows that report a class/title.
 hl.window_rule({
-    name      = "fix-xwayland-drags",
-    match     = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
-    no_focus = true,
+  name     = "fix-xwayland-drags",
+  match    = {
+    class      = "^$",
+    title      = "^$",
+    xwayland   = true,
+    float      = true,
+    fullscreen = false,
+    pin        = false,
+  },
+  no_focus = true,
 })
 
 -- `suppressMaximizeRule` is created and registered; the local variable is
 -- retained intentionally for potential runtime toggling as shown above.
 _ = suppressMaximizeRule
 
--- Force blur and maintain precise Kitty window opacity. 
+-- Force blur and maintain precise Kitty window opacity.
 -- The "override" flag stops Hyprland from compounding transparency levels.
+
+
+hl.layer_rule({
+  name         = "waybar-blur",
+  match        = { namespace = "waybar" },
+  blur         = true,
+  ignore_alpha = 0.2,
+  xray         = false,
+})
+
 hl.window_rule({
-    name    = "kitty-blur-and-opacity",
-    match   = { class = "^(kitty)$" },
-    opacity = "1.0 override 1.0 override",
+  name    = "kitty-blur-and-opacity",
+  match   = { class = "^(kitty)$" },
+  opacity = "1.0 override 1.0 override",
 })
 
 -- SwayNC notification center blur layer rules
 hl.layer_rule({
-    name    = "swaync-control-center-blur",
-    match   = { namespace = "swaync-control-center" },
-    blur    = true,
-    ignore_alpha = 0.2,
+  name         = "swaync-control-center-blur",
+  match        = { namespace = "swaync-control-center" },
+  blur         = true,
+  ignore_alpha = 0.2,
 })
 
 hl.layer_rule({
-    name    = "swaync-notification-window-blur",
-    match   = { namespace = "swaync-notification-window" },
-    blur    = true,
-    ignore_alpha = 0.2,
+  name         = "swaync-notification-window-blur",
+  match        = { namespace = "swaync-notification-window" },
+  blur         = true,
+  ignore_alpha = 0.2,
 })
 
 
--- Center align window rules for certain applications. 
--- This ensures that these windows appear in the center 
+-- Center align window rules for certain applications.
+-- This ensures that these windows appear in the center
 -- of the screen when they are opened, providing a consistent and user-friendly experience.
 
 hl.window_rule({
-    name = "center-pavucontrol",
-    match = {
-        class = ".*pavu.*",
-        -- initial_class = ".*pavu.*",
-    },
-    float = true,
-    center = true,
-    size = { 900, 600 },
+  name = "center-pavucontrol",
+  match = {
+    class = ".*pavu.*",
+    -- initial_class = ".*pavu.*",
+  },
+  float = true,
+  center = true,
+  size = { 900, 600 },
 
 })
 
 hl.window_rule({
-    name    = "center-blueman",
-    match   = { class = "blueman-manager" },
-    float    = true,
-    center    = true,
+  name   = "center-blueman",
+  match  = { class = "blueman-manager" },
+  float  = true,
+  center = true,
 })
 
 hl.window_rule({
-    name    = "center-nwg-looks",
-    match   = { class = "nwg-look" },
-    float    = true,
-    center    = true,
+  name   = "center-nwg-looks",
+  match  = { class = "nwg-look" },
+  float  = true,
+  center = true,
 })

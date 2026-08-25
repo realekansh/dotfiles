@@ -64,8 +64,8 @@ hl.config({
 
         blur = {
             enabled  = true,
-            size     = 4,
-            passes   = 1,
+            size     = 3,
+            passes   = 3,
             vibrancy = 0.1696,
         },
     },
@@ -79,3 +79,12 @@ hl.config({
         preserve_split = true,
     },
 })
+
+
+local colors = require('hyprland.themes.catppuccin-mocha')
+
+-- Non-alpha values are already in Hyprland's rgb(...) format.
+local base = colors.base
+
+-- Alpha values are hex without transparency; append the alpha, eg. `ee` and wrap in rgba(...).
+local surface0_ee = "rgba(colors.surface0Alpha .. 'ee')"

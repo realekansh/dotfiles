@@ -1,4 +1,4 @@
-@import url("themes/material-ocean.css");
+@import url("themes/catppuccin-mocha.css");
 
 /* =========================================================
  * GLOBAL
@@ -16,7 +16,12 @@
 window#waybar {
   background: @bar_bg;
   color: @text;
+  padding: 4px 8px;
   transition: background-color 0.3s ease;
+  margin: 6px 10px 0px 10px;  
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12); 
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
 
 window#waybar.hidden {
@@ -30,6 +35,7 @@ tooltip {
   color: @text;
   padding: 6px 8px;
 }
+
 
 /* =========================================================
  * SHARED MODULE STYLING
