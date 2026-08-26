@@ -28,7 +28,8 @@ local terminal    = executable("/usr/bin/kitty")
 local fileManager = executable("/usr/bin/nautilus")
 local browser     = executable("/usr/bin/chromium")
 local hyprpicker  = executable("/usr/bin/hyprpicker")
-local launcher    = "rofi -show drun"
+local launcher    = "~/.config/rofi/launchers/type-1/launcher.sh"
+local hyprshot = executable("/usr/bin/hyprshot")
 
 -- Window lifecycle ----------------------------------------------------------
 
@@ -70,12 +71,15 @@ if browser then
   hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 end
 
+
+-- Vicinae -------------------------------------------------------------------
+--
+hl.bind("ALT + Space", hl.dsp.exec_cmd("vicinae toggle"))
+
 -- Screenshots ---------------------------------------------------------------
 --
 -- SUPER + SHIFT + S enters region selection mode. The selected area is copied
 -- directly to the Wayland clipboard without creating a screenshot file.
-
-local hyprshot = executable("/usr/bin/hyprshot")
 
 if hyprshot then
   hl.bind(

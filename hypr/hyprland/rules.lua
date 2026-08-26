@@ -71,6 +71,20 @@ hl.layer_rule({
   ignore_alpha = 0.2,
 })
 
+-- Wlogout blur layer rules
+hl.layer_rule({
+  name         = "wlogout-blur",
+  match        = { namespace = "wlogout" },
+  blur         = true,
+  ignore_alpha = 0.0,
+})
+
+hl.layer_rule({
+  name         = "wlogout-gtk-blur",
+  match        = { namespace = "gtk-layer-shell" },
+  blur         = true,
+  ignore_alpha = 0.0,
+})
 
 -- Center align window rules for certain applications.
 -- This ensures that these windows appear in the center
