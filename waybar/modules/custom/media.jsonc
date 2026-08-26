@@ -1,6 +1,6 @@
 {
     "custom/media": {
-        "format": "{icon} {text}",
+        "format": "{icon}  {text}",
         "format-icons": {
             "spotify": "",
             "mpv": "",
@@ -8,6 +8,8 @@
             "firefox": "",
             "chromium": "",
             "youtube-music": "",
+	    "lollypop": " ",
+	    "apple-music": "",
             "default": ""
         },
         "return-type": "json",

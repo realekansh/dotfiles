@@ -127,7 +127,7 @@ class Scroller:
         out = {
             "text": display_text,
             "alt": player_name,
-            "class": self.current_class,
+            "class": [self.current_class, player_name],
             "tooltip": self.scroll_text
         }
         sys.stdout.write(json.dumps(out) + "\n")

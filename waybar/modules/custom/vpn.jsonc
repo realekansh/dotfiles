@@ -5,6 +5,6 @@
         "exec": "~/.config/waybar/scripts/vpn-status.sh",
         "interval": 5,
         "tooltip": true,
-	"on-click": "nm-connection-editor"
+        "on-click": "/home/notrealekansh/.config/rofi/vpn/vpn.sh"
     }
 }

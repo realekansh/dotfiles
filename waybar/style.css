@@ -97,6 +97,14 @@ tooltip {
   color: @module_icon;
 }
 
+#custom-media.lollypop {
+  background-image: url("file:///home/notrealekansh/.config/waybar/icons/lollypop-music-player.svg");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 18px 18px;
+  padding-left: 14px;
+}
+
 /* =========================================================
  * CENTER: HYPRLAND WORKSPACES
  * ========================================================= */

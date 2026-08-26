@@ -9,6 +9,7 @@
         "format-disconnected": "󰤭",
         "tooltip-format-disconnected": "Disconnected",
         "interval": 1,
-        "on-click": "nm-connection-editor"
+        "on-click": "/home/notrealekansh/.config/rofi/wifi/wifi.sh",
+        "on-click-right": "/home/notrealekansh/.config/rofi/network/network.sh"
     }
 }

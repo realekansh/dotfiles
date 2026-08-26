@@ -3,7 +3,8 @@
         "format": "{icon}",
         "format-icons": ["󰐥"],
         "on-click": "wlogout --protocol layer-shell",
-        "tooltip-format": "Power Options",
+        "on-click-right": "/home/notrealekansh/.config/rofi/powermenu/powermenu.sh",
+        "tooltip-format": "Power Options (Left-click: wlogout | Right-click: Rofi)",
         "tooltip": true
     }
 }
