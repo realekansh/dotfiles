@@ -115,15 +115,21 @@ if hyprpicker then
   )
 end
 
--- Wallpaper Shuffle ---------------------------------------------------------
+-- Wallpaper Management ------------------------------------------------------
 --
--- Use this command to reload and apply new wallpaper from ~/Pictures/wallpapers/
--- directory to apply a random wallpaper
+-- SUPER + SHIFT + W: Shuffle both wallpaper and Waybar theme
+-- SUPER + ALT + W:   Shuffle wallpaper only (leaves Waybar theme unchanged)
 
 hl.bind(
   mainMod .. " + SHIFT + W",
-  hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/wallpaper.sh"),
-  { desc = "Shuffle wallpaper" }
+  hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/wallpaper-theme.sh"),
+  { desc = "Shuffle wallpaper & Waybar theme" }
+)
+
+hl.bind(
+  mainMod .. " + ALT + W",
+  hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/wallpaper-only.sh"),
+  { desc = "Shuffle wallpaper only" }
 )
 
 -- Waybar Reload---------------------------------------------------------

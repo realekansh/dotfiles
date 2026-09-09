@@ -7,19 +7,48 @@ This document explains how wallpaper storage, selection, synchronization, and re
 ## Architecture Flow
 
 ```text
-[ User presses Super + Shift + W ]
-              │
-              ▼
-   [ hypr/scripts/wallpaper.sh ]
-              │
-    ┌─────────┴────────────────────────┐
-    ▼                                  ▼
-[ hypr/hyprpaper.conf ]       [ hypr/hyprlock.conf ]
-  path = $WALLPAPER             path = $WALLPAPER
-    │                                  │
-    ▼                                  ▼
-Restart hyprpaper             Synchronized lock screen
+[ User presses Super + Shift + W ]     [ User presses Super + Alt + W ]
+              │                                        │
+              ▼                                        ▼
+   [ wallpaper-theme.sh ]                    [ wallpaper-only.sh ]
+   (Wallpaper + Waybar Theme)                (Wallpaper Only)
+              │                                        │
+     ┌────────┴────────┬──────────────┐       ┌────────┴────────┐
+     ▼                 ▼              ▼       ▼                 ▼
+[hyprpaper.conf] [hyprlock.conf]  [style.css] [hyprpaper.conf] [hyprlock.conf]
+     │                 │              │       │                 │
+     ▼                 ▼              ▼       ▼                 ▼
+  hyprctl           hyprlock       killall hyprctl           hyprlock
+ hyprpaper            lock         -SIGUSR2 hyprpaper          lock
+   reload            screen         waybar    reload          screen
 ```
+
+---
+
+## Wallpaper Scripts & Modes
+
+The system provides two dedicated shuffle scripts located in `~/.config/hypr/scripts/`:
+
+1. **`wallpaper-theme.sh` (`Super + Shift + W`)**:
+   - Randomly picks a wallpaper from `~/.config/hypr/hyprpaper/`.
+   - Randomly picks a matching Waybar theme from `~/.config/waybar/themes/`.
+   - Updates `hyprpaper.conf`, `hyprlock.conf`, and `~/.config/waybar/style.css`.
+   - Live reloads Hyprpaper and sends `SIGUSR2` to Waybar for an instantaneous, flicker-free stylesheet transition.
+   - Dispatches a desktop notification with thumbnail and theme name.
+
+2. **`wallpaper-only.sh` (`Super + Alt + W`)**:
+   - Randomly picks and applies a wallpaper from `~/.config/hypr/hyprpaper/`.
+   - Updates `hyprpaper.conf` and `hyprlock.conf` for persistent desktop and lockscreen sync.
+   - **Leaves Waybar theme and CSS completely untouched**.
+   - Ideal for users who found their preferred Waybar theme and only want to randomize backgrounds.
+
+3. **`wallpaper.sh` (CLI Dispatcher)**:
+   - Unified entrypoint:
+     ```bash
+     wallpaper.sh --only    # Shuffle wallpaper only
+     wallpaper.sh --theme   # Shuffle both wallpaper and Waybar theme
+     wallpaper.sh /path/to/img.png  # Set specific wallpaper
+     ```
 
 ---
 
@@ -33,9 +62,9 @@ Restart hyprpaper             Synchronized lock screen
 
 ## Multi-Daemon Synchronization
 
-A common issue in Wayland desktop environments is visual desynchronization between the desktop wallpaper and the lockscreen wallpaper. The `wallpaper.sh` script resolves this by updating both configuration files simultaneously:
+A common issue in Wayland desktop environments is visual desynchronization between the desktop wallpaper and the lockscreen wallpaper. Both shuffler scripts resolve this by updating both configuration files simultaneously:
 
-1. Selects an image at random from `~/.config/hypr/hyprpaper/`.
+1. Selects an image from `~/.config/hypr/hyprpaper/`.
 2. Updates `hypr/hyprpaper.conf`:
    ```bash
    sed -i -E "s|path = .*|path = $WALLPAPER|g" "$HYPRPAPER_CONF"
@@ -44,10 +73,9 @@ A common issue in Wayland desktop environments is visual desynchronization betwe
    ```bash
    sed -i -E "s|path = .*|path = $WALLPAPER|g" "$HYPRLOCK_CONF"
    ```
-4. Restarts `hyprpaper` to apply the wallpaper immediately:
+4. Reloads `hyprpaper` dynamically via Wayland IPC:
    ```bash
-   killall hyprpaper
-   hyprpaper >/dev/null 2>&1 &
+   hyprctl hyprpaper wallpaper ",$WALLPAPER"
    ```
 
 Because `hyprlock.conf` now references the same image path, activating the screen lock (`Super + L`) displays the exact same wallpaper with Gaussian blur applied.
@@ -58,7 +86,7 @@ Because `hyprlock.conf` now references the same image path, activating the scree
 
 To add your own wallpapers to the rotation:
 1. Copy image files into `~/.config/hypr/hyprpaper/`.
-2. Press `Super + Shift + W` to trigger the shuffler script.
+2. Press `Super + Alt + W` (wallpaper only) or `Super + Shift + W` (wallpaper + theme).
 
 ---
 

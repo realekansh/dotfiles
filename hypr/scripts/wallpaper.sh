@@ -1,68 +1,54 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
-# Wallpaper & Waybar Theme Shuffle Script
+# Wallpaper & Theme Management Master Script
 #
-# Randomly selects a wallpaper from ~/.config/hypr/hyprpaper/ and a matching
-# Waybar stylesheet from ~/.config/waybar/themes/.
+# Unified entrypoint providing two dedicated operational modes:
+#   1. Wallpaper Only  (--only  | -o): Randomizes/sets wallpaper only, keeping
+#                                      the active Waybar theme unchanged.
+#   2. Full Shuffle    (--theme | -t): Randomizes both the wallpaper and the
+#                                      Waybar color palette simultaneously.
 #
-# Updates hyprpaper.conf and hyprlock.conf for persistence across reboots,
-# then smoothly refreshes the running hyprpaper daemon via Wayland IPC and
-# signals Waybar to reload its styling.
+# Default (no flags): Executes full shuffle (--theme).
 #
-# Triggered anytime via SUPER + SHIFT + W
+# Keybindings:
+#   SUPER + SHIFT + W  ->  Shuffle Wallpaper & Waybar Theme (wallpaper-theme.sh)
+#   SUPER + ALT + W    ->  Shuffle Wallpaper Only (wallpaper-only.sh)
 # -----------------------------------------------------------------------------
 
-WALLPAPER_DIR="$HOME/.config/hypr/hyprpaper"
-THEME_DIR="$HOME/.config/waybar/themes"
-WAYBAR_STYLE="$HOME/.config/waybar/style.css"
-HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf"
-HYPRLOCK_CONF="$HOME/.config/hypr/hyprlock.conf"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Pick a random supported wallpaper
-WALLPAPER="$(
-    find "$WALLPAPER_DIR" -maxdepth 1 -type f \
-        \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) \
-        | shuf -n 1
-)"
+show_help() {
+    cat << HELP
+Usage: $(basename "$0") [OPTIONS] [IMAGE_PATH] [THEME_NAME]
 
-if [[ -z "$WALLPAPER" ]]; then
-    echo "No wallpapers found in $WALLPAPER_DIR"
-    exit 1
-fi
+Options:
+  -o, --only         Change wallpaper ONLY (preserve current Waybar theme)
+  -t, --theme, -b    Change BOTH wallpaper and Waybar theme (default)
+  -h, --help         Show this help message
 
-# Pick a random Waybar theme
-THEME="$(
-    find "$THEME_DIR" -maxdepth 1 -type f -name '*.css' \
-        | shuf -n 1
-)"
+Examples:
+  $(basename "$0")                      # Shuffle both wallpaper and Waybar theme
+  $(basename "$0") --only               # Shuffle wallpaper only
+  $(basename "$0") --theme              # Shuffle both wallpaper and theme
+  $(basename "$0") -o ~/Pictures/bg.png # Set specific wallpaper without changing theme
+  $(basename "$0") -t ~/Pictures/bg.png catppuccin-mocha.css
+HELP
+}
 
-if [[ -z "$THEME" ]]; then
-    echo "No themes found in $THEME_DIR"
-    exit 1
-fi
-
-THEME_BASENAME=$(basename "$THEME")
-
-echo "Setting wallpaper to: $WALLPAPER"
-echo "Applying Waybar theme: $THEME_BASENAME"
-
-# Update hyprpaper configuration
-sed -i -E "s|path = .*|path = $WALLPAPER|g" "$HYPRPAPER_CONF"
-
-# Update hyprlock configuration
-sed -i -E "s|path = .*|path = $WALLPAPER|g" "$HYPRLOCK_CONF"
-
-# Update Waybar theme
-sed -i -E "s|@import url\(\"themes/[^\"]+\.css\"\);|@import url(\"themes/${THEME_BASENAME}\");|g" "$WAYBAR_STYLE"
-
-# Reload hyprpaper dynamically if running, otherwise launch it
-if pgrep -x hyprpaper >/dev/null; then
-    hyprctl hyprpaper wallpaper ",$WALLPAPER"
-else
-    hyprpaper >/dev/null 2>&1 &
-fi
-
-# Reload waybar
-killall -SIGUSR2 waybar
-
-echo "Done! Configurations updated permanently."
+case "${1:-}" in
+    -o|--only)
+        shift
+        exec "$SCRIPT_DIR/wallpaper-only.sh" "$@"
+        ;;
+    -t|--theme|-b|--both)
+        shift
+        exec "$SCRIPT_DIR/wallpaper-theme.sh" "$@"
+        ;;
+    -h|--help)
+        show_help
+        exit 0
+        ;;
+    *)
+        exec "$SCRIPT_DIR/wallpaper-theme.sh" "$@"
+        ;;
+esac
