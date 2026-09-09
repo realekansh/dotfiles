@@ -6,11 +6,14 @@
 @define-color text #d3c6aa;
 @define-color module_icon #a7c080;
 @define-color surface #4f5b58;
+@define-color utility_bg #a7c080;
+@define-color utility_fg #2d3530;
 @define-color launcher_bg #a7c080;
 @define-color launcher_fg #2d3530;
 @define-color workspace_bg rgba(39, 47, 42, 0.88);
 @define-color workspace_border #56635f;
 @define-color workspace_hover #d3c6aa;
+@define-color workspace_hover_fg #2d3530;
 @define-color inactive #859289;
 @define-color red #e67e80;
 @define-color yellow #dbbc7f;

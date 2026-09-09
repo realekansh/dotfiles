@@ -1,6 +1,6 @@
 {
     "custom/app": {
-        "format": " ",
+        "format": "  󰣇  ",
         "tooltip": false,
         "on-click": "/home/notrealekansh/.config/rofi/launchers/type-1/launcher.sh",
         "on-click-middle": "bash ~/.config/hypr/scripts/waybar-reload.sh",

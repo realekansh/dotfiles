@@ -1,8 +1,0 @@
-{
-    "custom/rofi": {
-        "format": "{icon} Search",
-        "format-icons": [""],
-        "tooltip-format": "Applications",
-        "on-click": "~/.config/rofi/scripts/menu.sh"
-    }
-}
