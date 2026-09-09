@@ -83,6 +83,8 @@ tooltip {
 }
 
 #custom-media {
+  background-color: @mauve;
+  color: @launcher_fg;
   margin-right: 12px;
   padding: 0 12px;
 }
@@ -95,7 +97,8 @@ tooltip {
 }
 
 #custom-media.custom-spotify {
-  color: @module_icon;
+  background-color: @spotify;
+  color: #0d1117;
 }
 
 #custom-media.lollypop {
@@ -112,7 +115,7 @@ tooltip {
 
 #workspaces {
   background: @workspace_bg;
-  border: 1px solid @workspace_border;
+  border: 1px solid @module_icon;
   border-radius: 16px;
   margin: 7px 0;
   padding: 3px 7px;
@@ -155,14 +158,25 @@ tooltip {
  * ========================================================= */
 
 #custom-system_popup {
-  color: @module_icon;
+  background-color: @utility_bg;
+  color: @utility_fg;
   margin-right: 8px;
-  padding: 0 13px;
+  padding: 0 12px;
 }
 
 #tray {
+  background-color: @surface;
+  border: 1px solid @tooltip_border;
+  border-radius: 16px;
   margin-right: 8px;
   padding: 0 10px;
+}
+
+#tray.empty {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Connectivity: network + bluetooth + VPN */
