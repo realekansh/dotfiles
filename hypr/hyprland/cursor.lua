@@ -5,6 +5,8 @@
 -- sync ensures the installed Moga-Black theme is used consistently.
 --
 -- The theme itself is installed separately under ~/.icons/Moga-Black.
+--
+-- Reference: https://wiki.hypr.land/Configuring/Variables/#cursor
 
 hl.env("HYPRCURSOR_THEME", "Moga-Black")
 hl.env("XCURSOR_THEME", "Moga-Black")
@@ -14,7 +16,7 @@ hl.env("XCURSOR_THEME", "Moga-Black")
 -- trying to resolve Moga-Black as a Hyprcursor theme.
 hl.config({
     cursor = {
-        enable_hyprcursor = falses,
+        enable_hyprcursor = false,
         sync_gsettings_theme = true,
     },
 })

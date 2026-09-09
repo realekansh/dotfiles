@@ -15,6 +15,12 @@
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
--- Hint to Qt applications to prefer the Wayland platform instead of falling
--- back to X11/XWayland. Harmless when no Qt app is running.
-hl.env("QT_QPA_PLATFORM", "wayland")
+-- Hint toolkits to prefer Wayland with safe fallbacks.
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("GDK_BACKEND", "wayland,x11,*")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+
+-- Standard XDG desktop session identifiers
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")

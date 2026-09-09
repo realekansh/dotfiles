@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+# -----------------------------------------------------------------------------
+# Waybar Graceful Reload Script
+#
+# Cleanly terminates running Waybar instances and relaunches the bar once
+# the process has fully exited.
+#
+# Triggered anytime via SUPER + SHIFT + R
+# -----------------------------------------------------------------------------
 
 # Stop the current Waybar instance
 pkill -x waybar

@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
-
-# Hyprsunset toggle script for Waybar / custom keybindings
+# -----------------------------------------------------------------------------
+# Hyprsunset Night Light Toggle Script
+#
+# Toggles the Hyprsunset color temperature between warm night mode (default: 4000K)
+# and daytime neutral identity matrix.
+#
+# Ensures the hyprsunset daemon is active, checks state in $XDG_RUNTIME_DIR,
+# and issues an IPC call via `hyprctl hyprsunset`.
+#
+# Triggered anytime via SUPER + SHIFT + N or clickable Waybar modules.
+# -----------------------------------------------------------------------------
 # State file to track whether night mode is ON or OFF
 STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/hyprsunset_state"
 TEMP="${1:-4000}"

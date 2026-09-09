@@ -1,17 +1,17 @@
--- Session startup.
+-- Session startup and background services.
 --
--- This module centralizes *all* `exec`-on-start commands. Phase 1 keeps this
--- intentionally minimal: no status bar, launcher, wallpaper daemon, lock
--- daemon, notification center, or polkit agent is started here. Those belong
--- to later phases once their own configuration exists and is ready to ship.
+-- This module centralizes all processes launched on compositor initialization
+-- via the `hyprland.start` event.
 --
--- The only commands here wire the Wayland environment into the user's D-Bus
--- session so that XDG desktop portals, XWayland clients, and other autostarted
--- user services inherit a consistent environment. These are standard for any
--- Wayland compositor session and are not project-specific.
+-- Startup Sequence:
+--   1. Environment synchronization: updates D-Bus and systemd user environments
+--      so portals, screen sharing, and user services inherit WAYLAND_DISPLAY.
+--   2. Desktop theme alignment: synchronizes GTK cursor settings with Moga-Black.
+--   3. Core daemons: launches status bar (waybar), wallpaper (hyprpaper), idle
+--      monitor (hypridle), notification center (swaync), clipboard/runner (vicinae),
+--      polkit authentication agent, and terminal emulator (kitty).
 --
--- Commands are guarded with `command -v` so the config still loads cleanly on
--- systems where the helper is absent.
+-- Reference: https://wiki.hypr.land/Configuring/Keywords/#exec-once
 
 hl.on("hyprland.start", function ()
     -- Pull WAYLAND_DISPLAY / XDG_SESSION_TYPE and friends into the user D-Bus and
@@ -30,4 +30,5 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("kitty")
     hl.exec_cmd("swaync")
     hl.exec_cmd("vicinae server")
+    hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
 end)

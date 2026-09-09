@@ -115,3 +115,35 @@ hl.window_rule({
   float  = true,
   center = true,
 })
+
+-- Picture-in-Picture windows float and stay pinned across workspaces
+hl.window_rule({
+  name  = "picture-in-picture",
+  match = { title = "^(Picture-in-Picture)$" },
+  float = true,
+  pin   = true,
+})
+
+-- Common file picker dialogs float and center
+hl.window_rule({
+  name  = "file-picker-dialogs",
+  match = { title = "^(Open Files?|Save Files?|Confirm to replace files|Choose Files?|File Upload)$" },
+  float = true,
+  center = true,
+})
+
+-- Polkit authentication agents float and center
+hl.window_rule({
+  name  = "polkit-agent-dialog",
+  match = { class = "^(hyprpolkitagent|org.freedesktop.impl.portal.desktop.kde|polkit-gnome-authentication-agent-1)$" },
+  float = true,
+  center = true,
+})
+
+-- Application launcher (Rofi) blur layer rule
+hl.layer_rule({
+  name         = "rofi-blur",
+  match        = { namespace = "rofi" },
+  blur         = true,
+  ignore_alpha = 0.2,
+})

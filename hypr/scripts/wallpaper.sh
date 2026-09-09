@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+# -----------------------------------------------------------------------------
+# Wallpaper & Waybar Theme Shuffle Script
+#
+# Randomly selects a wallpaper from ~/.config/hypr/hyprpaper/ and a matching
+# Waybar stylesheet from ~/.config/waybar/themes/.
+#
+# Updates hyprpaper.conf and hyprlock.conf for persistence across reboots,
+# then smoothly refreshes the running hyprpaper daemon via Wayland IPC and
+# signals Waybar to reload its styling.
+#
+# Triggered anytime via SUPER + SHIFT + W
+# -----------------------------------------------------------------------------
 
 WALLPAPER_DIR="$HOME/.config/hypr/hyprpaper"
 THEME_DIR="$HOME/.config/waybar/themes"
@@ -43,9 +55,12 @@ sed -i -E "s|path = .*|path = $WALLPAPER|g" "$HYPRLOCK_CONF"
 # Update Waybar theme
 sed -i -E "s|@import url\(\"themes/[^\"]+\.css\"\);|@import url(\"themes/${THEME_BASENAME}\");|g" "$WAYBAR_STYLE"
 
-# Reload hyprpaper
-killall hyprpaper
-hyprpaper >/dev/null 2>&1 &
+# Reload hyprpaper dynamically if running, otherwise launch it
+if pgrep -x hyprpaper >/dev/null; then
+    hyprctl hyprpaper wallpaper ",$WALLPAPER"
+else
+    hyprpaper >/dev/null 2>&1 &
+fi
 
 # Reload waybar
 killall -SIGUSR2 waybar

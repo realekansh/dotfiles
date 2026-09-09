@@ -1,14 +1,29 @@
 -- Monitor configuration.
 --
--- An empty `output` string tells Hyprland to apply the rule to every detected
--- output, mirroring the documented fallback in the example config. This keeps
--- the baseline safe on arbitrary laptops without hardcoding vendor names like
--- "eDP-1". Per-output overrides belong in a future hardware-specific module.
+-- Dedicated configuration for the internal panel, plus a safe preferred-mode
+-- fallback for hotplugged external displays.
 --
 -- Reference: https://wiki.hypr.land/Configuring/Basics/Monitors/
+
+-- Internal laptop display
+hl.monitor({
+    output   = "eDP-1",
+    mode     = "1920x1080@60.05600",
+    position = "auto",
+    scale    = "1.25",
+})
+
+-- Fallback rule for any connected external monitor
 hl.monitor({
     output   = "",
-    mode     = "1920x1080@60.05600",  -- let the monitor advertise its 'preferred' mode
-    position = "auto",       -- arrange outputs automatically
-    scale    = "1.25",       -- pick a sane HiDPI scale per output
+    mode     = "preferred",
+    position = "auto",
+    scale    = "auto",
+})
+
+-- Prevent blurry XWayland applications under fractional scaling (1.25x)
+hl.config({
+    xwayland = {
+        force_zero_scaling = true,
+    },
 })

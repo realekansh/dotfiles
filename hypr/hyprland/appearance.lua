@@ -1,12 +1,12 @@
--- Window appearance primitives owned by Hyprland.
+-- Window appearance primitives and theming.
 --
--- This module sets only structural/visual primitives that Hyprland controls
--- directly: gaps, borders, rounding, opacity, blur and shadows. The actual
--- color palette and design system are intentionally NOT defined here; they
--- belong to a later theming phase. Border/active colors below are neutral
--- grays so the setup is presentable without committing to a theme.
+-- This module defines the visual foundation of your desktop: gaps, borders,
+-- window rounding, shadows, and blur effects. It seamlessly integrates the
+-- Catppuccin Mocha color palette to produce an elegant multi-color border gradient.
 --
 -- Reference: https://wiki.hypr.land/Configuring/Basics/Variables/
+
+local colors = require('hyprland.themes.catppuccin-mocha')
 
 hl.config({
     general = {
@@ -17,21 +17,18 @@ hl.config({
 
         border_size = 2,
 
-        -- Neutral placeholders. Replace with the real palette in the theming
-        -- phase. `col.active_border` accepts a gradient table; a single-color
-        -- string is also valid.
         col = {
-    active_border = {
-        colors = {
-	    "rgba(cdd6f4ff)",
-	    "rgba(c7bdd3ff)",
- 	    "rgba(676a80ff)",
-        },
-            angle = 45,
-       },
+            active_border = {
+                colors = {
+                    colors.mauve,
+                    colors.lavender,
+                    colors.sapphire,
+                },
+                angle = 45,
+            },
 
-    	    inactive_border = "rgb(333333)",
-	},
+            inactive_border = colors.surface0,
+        },
 
         -- Resizing from borders/gaps is convenient but can cause accidental
         -- drags; keep it off by default and enable intentionally per user.
@@ -79,12 +76,3 @@ hl.config({
         preserve_split = true,
     },
 })
-
-
-local colors = require('hyprland.themes.catppuccin-mocha')
-
--- Non-alpha values are already in Hyprland's rgb(...) format.
-local base = colors.base
-
--- Alpha values are hex without transparency; append the alpha, eg. `ee` and wrap in rgba(...).
-local surface0_ee = "rgba(colors.surface0Alpha .. 'ee')"

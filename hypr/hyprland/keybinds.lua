@@ -83,6 +83,14 @@ hl.bind("ALT + Space", hl.dsp.exec_cmd("vicinae toggle"))
 
 if hyprshot then
   hl.bind(
+    "SHIFT + Print",
+    hl.dsp.exec_cmd(hyprshot .. " -m output --clipboard-only")
+  )
+end
+
+
+if hyprshot then
+  hl.bind(
     mainMod .. " + SHIFT + S",
     hl.dsp.exec_cmd(hyprshot .. " -m region --clipboard-only")
   )
@@ -126,6 +134,26 @@ hl.bind(
   mainMod .. " + SHIFT + R",
   hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/waybar-reload.sh"),
   { desc = "Reload Waybar" }
+)
+
+-- Night Light / Hyprsunset Toggle ---------------------------------------
+--
+-- Toggle warm color temperature (blue-light filter) on/off
+
+hl.bind(
+  mainMod .. " + SHIFT + N",
+  hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/hyprsunset-toggle.sh"),
+  { desc = "Toggle Hyprsunset Night Mode" }
+)
+
+-- Notification Center ---------------------------------------------------
+--
+-- Toggle SwayNC control / notification center
+
+hl.bind(
+  mainMod .. " + N",
+  hl.dsp.exec_cmd("swaync-client -t -sw"),
+  { desc = "Toggle Notification Center" }
 )
 
 -- HyprCaffeine Keybinds (v0.9.2) ──────────────────────────────────────────
