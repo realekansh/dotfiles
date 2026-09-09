@@ -33,6 +33,7 @@
     ],
     "modules-right": [
         "custom/system_popup",
+        "tray",
         "group/connectivity",
         "group/system",
         "group/notifications"
