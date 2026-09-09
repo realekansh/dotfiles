@@ -17,4 +17,4 @@ while pgrep -x waybar >/dev/null; do
 done
 
 # Start Waybar again
-waybar >/dev/null 2>&1 &
+nohup waybar >/dev/null 2>&1 &
