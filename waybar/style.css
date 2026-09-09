@@ -123,12 +123,12 @@ tooltip {
 
 #workspaces button {
   background-color: @surface;
-  border-radius: 12px;
+  border-radius: 14px;
   color: @text;
-  margin: 0 2px;
-  min-width: 28px;
-  padding: 0 10px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0 3px;
+  min-width: 24px;
+  padding: 0 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #workspaces button label {
@@ -143,17 +143,19 @@ tooltip {
 #workspaces button.active {
   background-color: @launcher_bg;
   color: @launcher_fg;
-  min-width: 28px;
+  min-width: 40px;
 }
 
 #workspaces button.urgent {
   background-color: @red;
   color: @launcher_fg;
+  min-width: 32px;
 }
 
 #workspaces button:hover {
   background-color: @workspace_hover;
   color: @workspace_hover_fg;
+  min-width: 32px;
 }
 
 /* =========================================================
