@@ -16,5 +16,5 @@ while pgrep -x waybar >/dev/null; do
     sleep 0.1
 done
 
-# Start Waybar again
-nohup waybar >/dev/null 2>&1 &
+# Start Waybar again via Hyprland session dispatch
+hyprctl dispatch 'hl.dsp.exec_cmd("waybar")'
