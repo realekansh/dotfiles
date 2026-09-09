@@ -121,13 +121,15 @@ tooltip {
   padding: 3px 7px;
 }
 
+/* Base: Workspaces with open windows (Expanded state) */
 #workspaces button {
   background-color: @surface;
   border-radius: 12px;
   color: @text;
   margin: 0 2px;
-  padding: 0 7px;
   min-width: 0;
+  padding-left: 8px;
+  padding-right: 12px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -136,19 +138,29 @@ tooltip {
   margin: 0;
 }
 
+/* Condition 1: Empty workspace - all windows closed (Collapsed state) */
 #workspaces button.empty {
   opacity: 0.45;
-  padding: 0 6px;
+  padding: 0 7px;
+  min-width: 24px;
 }
 
+/* Condition 2: Active workspace with windows (Expanded + 3D groove) */
 #workspaces button.active {
   background-color: @launcher_bg;
   color: @launcher_fg;
-  padding: 0 9px;
+  padding-left: 9px;
+  padding-right: 13px;
   margin: 0 3px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 2px 7px rgba(0, 0, 0, 0.45);
   opacity: 1;
+}
+
+/* Condition 3: Active workspace with NO windows (Collapsed + 3D groove) */
+#workspaces button.active.empty {
+  padding: 0 8px;
+  min-width: 26px;
 }
 
 #workspaces button.urgent {
@@ -156,11 +168,17 @@ tooltip {
   color: @launcher_fg;
 }
 
+/* Interactive hover expansion */
 #workspaces button:hover {
   background-color: @workspace_hover;
   color: @workspace_hover_fg;
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 14px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#workspaces button.empty:hover {
+  padding: 0 9px;
 }
 
 /* =========================================================
